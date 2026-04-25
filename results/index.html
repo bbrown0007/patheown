@@ -282,14 +282,13 @@
         opacity: 0;
         animation: fadeup 0.7s 0.22s ease forwards;
       }
-      .g-icon {
-        font-size: 24px;
-        font-weight: 900;
-        font-style: italic;
-        background: linear-gradient(135deg, #4285f4, #34a853, #fbbc04, #ea4335);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      .g-badge svg path:nth-child(3) {
+        transform: translate(-1px, -0.2px);
+        -webkit-transform: translate(-1px, -0.2px);
+      }
+      .g-badge svg path:nth-child(1) {
+        transform: translate(-1px, -1px);
+        -webkit-transform: translate(-1px, -1px);
       }
       .g-score {
         font-size: 34px;
@@ -917,7 +916,31 @@
         </div>
         <div class="badges-stack">
           <div class="g-badge">
-            <span class="g-icon">G</span>
+            <span
+              ><svg
+                width="30"
+                height="30"
+                viewBox="-2 -2 50 50"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#EA4335"
+                  d="M24 9.5c3.54 0 6.73 1.22 9.24 3.6l6.9-6.9C35.9 2.5 30.4 0 24 0 14.64 0 6.56 5.4 2.56 13.26l8.06 6.26C12.5 13.5 17.76 9.5 24 9.5z"
+                />
+                <path
+                  fill="#4285F4"
+                  d="M46.5 24.5c0-1.64-.14-3.22-.4-4.74H24v9h12.7c-.55 2.96-2.2 5.46-4.7 7.14l7.2 5.6C43.9 37.5 46.5 31.5 46.5 24.5z"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M10.62 28.52A14.5 14.5 0 0 1 9.5 24c0-1.56.28-3.06.78-4.48l-8.06-6.26A24 24 0 0 0 0 24c0 3.84.92 7.46 2.56 10.74l8.06-6.22z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M23 48c6.4 0 11.78-2.12 15.7-5.76l-7.2-5.6c-2 1.34-4.56 2.14-8.5 2.14-6.24 0-11.5-4-13.38-9.48l-8.06 6.22C6.56 42.6 14.64 48 24 48z"
+                />
+              </svg>
+            </span>
             <div>
               <div style="display: flex; align-items: center; gap: 10px">
                 <span class="g-score">4.9</span
@@ -926,6 +949,7 @@
               <div class="g-count">Based on 140+ Google Reviews</div>
             </div>
           </div>
+          <!-- 
           <div class="tp-badge">
             <div>
               <div class="tp-logo">
@@ -952,7 +976,7 @@
               <div class="tp-count">Based on 90+ Trustpilot Reviews</div>
             </div>
           </div>
-        </div>
+        --></div>
       </div>
     </div>
 
