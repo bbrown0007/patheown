@@ -582,22 +582,26 @@
       }
       /* ORIGINAL VIDEO PLAYER */
       .video-wrap {
+        display: flex;
+        width: 100%;
+        height: auto;
         background: #0f0c2e;
         border: 1.5px solid rgba(108, 99, 255, 0.25);
         border-radius: 16px;
         overflow: hidden;
-        aspect-ratio: 16/9;
-        position: relative;
-        cursor: pointer;
         transition: border-color 0.3s, box-shadow 0.3s;
+        position: relative;
       }
       .video-wrap:hover {
         border-color: var(--accent);
         box-shadow: 0 0 0 1px var(--accent), 0 20px 48px rgba(108, 99, 255, 0.2);
       }
       .video-bg {
-        position: absolute;
-        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: cover;
+        z-index: 1;
         background: linear-gradient(
           135deg,
           #0a0820 0%,
@@ -632,12 +636,13 @@
         border-radius: 50%;
       }
       .play-btn {
+        cursor: pointer;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 64px;
-        height: 64px;
+        width: clamp(42px, 7vw, 64px);
+        height: clamp(42px, 7vw, 64px);
         border-radius: 50%;
         background: var(--accent);
         display: flex;
@@ -645,8 +650,12 @@
         justify-content: center;
         box-shadow: 0 0 0 14px rgba(108, 99, 255, 0.14),
           0 0 0 28px rgba(108, 99, 255, 0.06);
-        transition: transform 0.25s, background 0.2s;
-        z-index: 2;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        z-index: 10;
+      }
+      .play-btn.hidden {
+        opacity: 0;
+        pointer-events: none;
       }
       .video-wrap:hover .play-btn {
         transform: translate(-50%, -50%) scale(1.1);
@@ -667,12 +676,13 @@
         border: 1px solid rgba(108, 99, 255, 0.25);
         border-radius: 8px;
         padding: 7px 14px;
-        font-size: 13px;
+        font-size: clamp(6px, 2vw, 13px);
         font-weight: 600;
         color: rgba(255, 255, 255, 0.7);
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        z-index: 2;
+        z-index: 11;
+        transition: opacity 0.3s ease;
       }
 
       .pain-grid {
@@ -1518,6 +1528,11 @@
           grid-template-columns: 1fr;
         }
       }
+      @media (max-width: 380px) {
+        .results-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1723,12 +1738,27 @@
           </div>
           <div class="pain-top-right">
             <div class="video-wrap">
-              <div class="video-bg"></div>
+              <video
+                class="video-bg"
+                playsinline
+                controls
+                preload="metadata"
+                disablePictureInPicture
+                poster="./assets/thumbnail_vsl.png"
+              >
+                <source
+                  src="https://assets.cdn.filesafe.space/Qfm2kgJX09aNJ18iNPvo/media/69ebc939a087d00deddb118d.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+
               <div class="play-btn">
                 <svg viewBox="0 0 24 24">
                   <polygon points="5 3 19 12 5 21 5 3" />
                 </svg>
               </div>
+
               <div class="video-label">
                 Watch — How Patheown Works for Your Practice
               </div>
@@ -3003,6 +3033,31 @@
       <p>© 2025 Patheown · HIPAA Compliant · All rights reserved.</p>
     </footer>
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const videoWrap = document.querySelector(".video-wrap");
+        const video = videoWrap.querySelector("video");
+        const playBtn = videoWrap.querySelector(".play-btn");
+        const label = videoWrap.querySelector(".video-label");
+        // Start with controls hidden
+        video.controls = false;
+        // PLAY BUTTON CLICK
+        playBtn.addEventListener("click", () => {
+          video.controls = true;
+          video.play();
+          playBtn.classList.add("hidden");
+          label.style.opacity = "0";
+          label.style.visibility = "hidden";
+        });
+        // WHEN VIDEO ENDS
+        video.addEventListener("ended", () => {
+          video.controls = false;
+          playBtn.classList.remove("hidden");
+          label.style.opacity = "1";
+          label.style.visibility = "visible";
+        });
+      });
+    </script>
     <script>
       document.querySelectorAll(".spec-tab").forEach((tab, i, tabs) => {
         tab.addEventListener("click", function () {
