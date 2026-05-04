@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Pixel -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "652962024478052");
+      fbq("track", "PageView");
+      fbq("track", "Schedule");
+    </script>
+    <!-- TikTok Pixel -->
+    <script>
+      !(function (w, d, t) {
+        w.TiktokAnalyticsObject = t;
+        var ttq = (w[t] = w[t] || []);
+        ttq.methods = [
+          "page",
+          "track",
+          "identify",
+          "instances",
+          "debug",
+          "on",
+          "off",
+          "once",
+          "ready",
+          "alias",
+          "group",
+          "enableCookie",
+          "disableCookie",
+        ];
+        ttq.setAndDefer = function (t, e) {
+          t[e] = function () {
+            t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+          };
+        };
+        for (var i = 0; i < ttq.methods.length; i++) {
+          ttq.setAndDefer(ttq, ttq.methods[i]);
+        }
+        ttq.load = function (e, n) {
+          var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
+          ttq._i = ttq._i || {};
+          ttq._i[e] = [];
+          ttq._i[e]._u = i;
+          ttq._t = ttq._t || {};
+          ttq._t[e] = +new Date();
+          ttq._o = ttq._o || {};
+          ttq._o[e] = n || {};
+          var o = document.createElement("script");
+          o.type = "text/javascript";
+          o.async = true;
+          o.src = i + "?sdkid=" + e + "&lib=" + t;
+          var a = document.getElementsByTagName("script")[0];
+          a.parentNode.insertBefore(o, a);
+        };
+        ttq.load("YOUR_PIXEL_ID"); // replace this
+        ttq.page();
+      })(window, document, "ttq");
+      ttq.track("Schedule"); // or Lead
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=652962024478052&ev=PageView&noscript=1"
+    /></noscript>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You — Patheown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #fff;
+        --surface: #f7f6ff;
+        --card: #fff;
+        --border: #e2e0f5;
+        --border-h: #b3adff;
+        --accent: #6c63ff;
+        --accent-dk: #5550d4;
+        --accent-lt: #ede9ff;
+        --text: #0f0c2e;
+        --muted: #5c5880;
+        --dim: #9490b8;
+        --green: #16a34a;
+        --green-bg: #f0fdf4;
+        --green-bdr: #bbf7d0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+      body,
+      a,
+      button,
+      input {
+        -webkit-tap-highlight-color: transparent;
+      }
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 56px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 1px 16px rgba(108, 99, 255, 0.06);
+      }
+      .nav-logo {
+        font-family: "Instrument Serif", serif;
+        font-size: 26px;
+        text-decoration: none;
+      }
+      .logo-plain {
+        color: var(--text);
+      }
+      .logo-em {
+        color: var(--accent);
+        font-style: italic;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+      .nav-links a {
+        font-size: 14.5px;
+        font-weight: 500;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--text);
+      }
+      .nav-cta {
+        background: var(--accent);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 10px 22px;
+        border-radius: 100px;
+        text-decoration: none;
+        transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      }
+      .nav-cta:hover {
+        background: var(--accent-dk);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(108, 99, 255, 0.3);
+      }
+      /* HAMBURGER */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 8px;
+        transition: background 0.2s;
+      }
+      .hamburger:hover {
+        background: var(--surface);
+      }
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2.5px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: all 0.28s ease;
+      }
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+      }
+
+      /* MOBILE MENU DRAWER */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        z-index: 199;
+        background: #fff;
+        border-bottom: 2px solid var(--border);
+        box-shadow: 0 8px 32px rgba(108, 99, 255, 0.12);
+        padding: 20px 24px 28px;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--text);
+        text-decoration: none;
+        padding: 13px 16px;
+        border-radius: 12px;
+        transition: background 0.18s, color 0.18s;
+      }
+      .mobile-menu a:hover {
+        background: var(--surface);
+        color: var(--accent);
+      }
+      .mobile-menu .mob-cta {
+        background: var(--accent);
+        color: #fff;
+        text-align: center;
+        margin-top: 8px;
+        border-radius: 100px;
+        padding: 14px 16px;
+        font-weight: 700;
+      }
+      .mobile-menu .mob-cta:hover {
+        background: var(--accent-dk);
+        color: #fff;
+      }
+      /*Thank You Section*/
+      .thankyou-wrapper {
+        background: linear-gradient(160deg, #fff 0%, #f7f5ff 55%, #ede9ff 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 20px 80px;
+        animation: up 0.6s ease;
+      }
+      .thankyou-card {
+        max-width: 720px;
+      }
+      .badge {
+        font-family: "DM Sans", sans-serif;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(108, 99, 255, 0.08);
+        border: 1px solid rgba(108, 99, 255, 0.2);
+        border-radius: 100px;
+        padding: 4px 12px;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 28px;
+      }
+      h1 {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(38px, 5vw, 64px);
+        font-weight: 400;
+        line-height: 1.07;
+        margin-bottom: 22px;
+        color: var(--text);
+        opacity: 0;
+        animation: up 0.6s 0.1s ease forwards;
+      }
+      h1 span {
+        color: var(--accent);
+        font-style: italic;
+      }
+      .subtext {
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        color: #5c5880;
+        margin: 0 0 22px 0;
+        line-height: 1.65;
+      }
+      .subtext:last-of-type {
+        margin-bottom: 40px;
+      }
+      /* CTA BUTTON */
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 16px 32px;
+        border-radius: 100px;
+        text-decoration: none;
+        transition: all 0.2s;
+        box-shadow: 0 4px 20px rgba(108, 99, 255, 0.25);
+      }
+      .cta-btn:hover {
+        background: var(--accent-dk);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 32px rgba(108, 99, 255, 0.35);
+      }
+      .cta-btn svg {
+        width: 17px;
+        height: 17px;
+        transition: transform 0.2s;
+      }
+      @keyframes up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 36px;
+        }
+        .subtext {
+          font-size: 16px;
+        }
+        .cta-btn {
+          font-size: 14px;
+          padding: 14px 30px;
+        }
+      }
+      @media (max-width: 320px) {
+        h1 {
+          font-size: 34px;
+        }
+        .subtext {
+          font-size: 14px;
+        }
+        .badge {
+          font-size: 12px;
+        }
+        .cta-btn {
+          font-size: 12px;
+          padding: 12px 28px;
+        }
+      }
+      /* FOOTER */
+      footer {
+        background: var(--text);
+        padding: 36px 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .f-logo {
+        font-family: "Instrument Serif", serif;
+        font-size: 24px;
+      }
+      .f-logo .logo-plain {
+        color: #fff;
+      }
+      .f-logo .logo-em {
+        color: #a89fff;
+        font-style: italic;
+      }
+      .f-links {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+      .f-links a {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .f-links a:hover {
+        color: #fff;
+      }
+      footer p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.32);
+      }
+
+      @keyframes up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        nav {
+          padding: 0 24px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-cta {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        footer {
+          padding: 32px 24px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="/"
+        ><span class="logo-plain">Path</span
+        ><span class="logo-em">eown</span></a
+      >
+      <div class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="/industries">Specialties</a>
+        <a href="/pricing-tiers">Pricing</a>
+        <a href="/results">Results</a>
+      </div>
+      <a class="nav-cta" href="#demo">Book a Free Demo →</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#how" onclick="closeMobileMenu()">How It Works</a>
+      <a href="/industries" onclick="closeMobileMenu()">Specialties</a>
+      <a href="/pricing-tiers" onclick="closeMobileMenu()">Pricing</a>
+      <a href="/results" onclick="closeMobileMenu()">Results</a>
+      <a href="#demo" class="mob-cta" onclick="closeMobileMenu()"
+        >Book a Free Demo →</a
+      >
+    </div>
+    <section class="thankyou-wrapper">
+      <div class="thankyou-card">
+        <div class="badge">Your response has been received</div>
+        <h1>
+          Thank you for <br />
+          filling out the <span>form.</span>
+        </h1>
+        <p class="subtext">
+          Our team will review your submission and get back to you within 24
+          hours. We're excited to help transform your business with AI
+          automation.
+        </p>
+        <a href="/" class="cta-btn">
+          Back To Home
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 8h10M9 4l4 4-4 4"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+    <footer>
+      <div class="f-logo">
+        <span class="logo-plain">Path</span><span class="logo-em">eown</span>
+      </div>
+      <div class="f-links">
+        <a href="/industries">Specialties</a>
+        <a href="/pricing-tiers">Pricing</a>
+        <a href="/results">Results</a>
+      </div>
+      <p>© 2025 Patheown · HIPAA Compliant · All rights reserved.</p>
+    </footer>
+    <script>
+      function closeMobileMenu() {
+        document.getElementById("mobile-menu").classList.remove("open");
+        document.getElementById("hamburger").classList.remove("open");
+      }
+      document
+        .getElementById("hamburger")
+        .addEventListener("click", function () {
+          this.classList.toggle("open");
+          document.getElementById("mobile-menu").classList.toggle("open");
+        });
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest("nav") && !e.target.closest(".mobile-menu")) {
+          closeMobileMenu();
+        }
+      });
+    </script>
+  </body>
+</html>
