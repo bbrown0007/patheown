@@ -1,0 +1,2378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Tiers Patheown AI Healthcare Automation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg2: #f7f5ff;
+            --bg3: #f0ecff;
+            --accent: #7c3aed;
+            --accent2: #6d28d9;
+            --accent-light: #a78bfa;
+            --accent-dim: rgba(124, 58, 237, 0.08);
+            --accent-dim2: rgba(124, 58, 237, 0.14);
+            --accent-glow: rgba(124, 58, 237, 0.22);
+            --text: #1a0a2e;
+            --text-muted: #6b5b95;
+            --text-dim: #b3a8cc;
+            --border: rgba(124, 58, 237, 0.2);
+            --border3: #ede9fe;
+            --red: #e11d48;
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans: 'DM Sans', sans-serif;
+            --shadow-sm: 0 2px 8px rgba(124, 58, 237, 0.07);
+            --shadow-md: 0 8px 32px rgba(124, 58, 237, 0.1);
+            --shadow-lg: 0 24px 80px rgba(124, 58, 237, 0.14);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(124, 58, 237, 0.055) 1px, transparent 1px);
+            background-size: 38px 38px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 64px;
+            background: rgba(255, 255, 255, 0.93);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border3);
+            box-shadow: 0 1px 0 rgba(124, 58, 237, 0.07);
+        }
+
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 26px;
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo-plain {
+            color: var(--text);
+            font-style: normal;
+        }
+
+        .nav-logo-italic {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .btn-nav {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .btn-nav:hover {
+            background: var(--accent2);
+            transform: translateY(-1px);
+        }
+
+        .btn-login {
+            border: 1.5px solid var(--border);
+            color: var(--accent);
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            z-index: 1;
+            padding: 160px 40px 90px;
+            text-align: center;
+            background: linear-gradient(180deg, #faf8ff 0%, #fff 70%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            pointer-events: none;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 999px;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: fadeUp 0.6s ease both;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(40px, 6vw, 76px);
+            line-height: 1.07;
+            letter-spacing: -2px;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto 22px;
+            animation: fadeUp 0.7s 0.1s ease both;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 28px;
+            line-height: 1.75;
+            font-weight: 300;
+            animation: fadeUp 0.7s 0.2s ease both;
+            position: relative;
+        }
+
+        .hero-trust {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            border: 1.5px solid var(--border3);
+            border-radius: 12px;
+            padding: 11px 22px;
+            font-size: 14px;
+            color: var(--text-muted);
+            box-shadow: var(--shadow-sm);
+            animation: fadeUp 0.7s 0.3s ease both;
+            position: relative;
+        }
+
+        .hero-trust svg {
+            color: var(--accent);
+        }
+
+        .hero-trust strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            background: var(--accent-dim);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 999px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        /* ── TIER CARDS CLEAN VERTICAL ── */
+        .tiers-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0 120px;
+            background: var(--bg2);
+            border-top: 1px solid var(--border3);
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        /* base card vertical flex */
+        .tier-card {
+            background: #fff;
+            border: 1.5px solid var(--border3);
+            border-radius: 22px;
+            padding: 32px 26px 28px;
+            position: relative;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tier-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border);
+            transform: translateY(-4px);
+        }
+
+        /* GROWTH outline */
+        .tier-card.growth {
+            border: 2.5px solid var(--accent);
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
+        }
+
+        .tier-card.growth:hover {
+            box-shadow: 0 16px 48px rgba(124, 58, 237, 0.18);
+        }
+
+        /* SCALE outline */
+        .tier-card.scale {
+            border: 2.5px solid var(--accent);
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
+            color: var(--text);
+        }
+
+        .tier-card.scale:hover {
+            box-shadow: 0 16px 48px rgba(124, 58, 237, 0.18);
+        }
+
+        /* badge centered */
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 999px;
+            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(124, 58, 237, 0.12);
+        }
+
+        /* column wrappers invisible content flows naturally */
+        .tier-left {
+            display: contents;
+        }
+
+        .tier-middle {
+            display: contents;
+        }
+
+        .tier-right {
+            display: contents;
+        }
+
+        .tier-num {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .tier-name {
+            font-family: var(--serif);
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .tier-tagline {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .tier-hipaa {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-dim);
+            border: 1px solid var(--border);
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+
+        .tier-divider {
+            height: 1px;
+            background: var(--border3);
+            margin: 0 0 16px;
+        }
+
+        /* features single column */
+        .tier-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .tier-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .fc {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-dim);
+        }
+
+        .fc svg {
+            color: var(--accent);
+        }
+
+        /* Diamond addon block */
+        .diamond-addon-block {
+            background: var(--accent-dim);
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 16px;
+            margin-top: 0;
+        }
+
+        .diamond-addon-block-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .diamond-addon-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .diamond-addon-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .diamond-addon-item-icon {
+            font-size: 13px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* buttons */
+        .btn-tier {
+            width: 100%;
+            padding: 13px;
+            border-radius: 10px;
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            border: none;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            margin-top: auto;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+        }
+
+        .btn-fill {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        .btn-fill:hover {
+            background: var(--accent2);
+            transform: translateY(-2px);
+        }
+
+        .btn-scale {
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        .btn-scale:hover {
+            background: var(--accent2);
+            transform: translateY(-2px);
+        }
+
+        .btn-note {
+            display: none;
+        }
+
+        .tier-setup {
+            display: none;
+        }
+
+        .tier-setup-price {
+            display: none;
+        }
+
+        .tier-monthly {
+            display: none;
+        }
+
+        .tier-custom {
+            display: none;
+        }
+
+        .tier-monthly-label {
+            display: none;
+        }
+
+        .tier-divider {
+            height: 1px;
+            background: var(--border3);
+            margin: 0 0 16px;
+        }
+
+        /* tiers section header */
+        .tiers-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .tiers-header h2 {
+            font-family: var(--serif);
+            font-size: clamp(28px, 4vw, 50px);
+            font-weight: 400;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+
+        .tiers-header h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .tiers-header p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── DIAMOND MARKETING SECTION ── */
+        .diamond-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0 110px;
+            background: #fff;
+            border-top: 1px solid var(--border3);
+            overflow: hidden;
+        }
+
+        .diamond-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .diamond-section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .diamond-section-header h2 {
+            font-family: var(--serif);
+            font-size: clamp(30px, 4vw, 54px);
+            font-weight: 400;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+
+        .diamond-section-header h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .diamond-section-header p {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0 auto 24px;
+            line-height: 1.75;
+        }
+
+        .diamond-exclusive {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #f5f0ff, #ede9fe);
+            border: 1.5px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .diamond-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .diamond-card {
+            background: #fff;
+            border: 1.5px solid var(--border3);
+            border-radius: 22px;
+            padding: 38px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .diamond-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-light), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .diamond-card:hover::before {
+            opacity: 1;
+        }
+
+        .diamond-card:hover {
+            border-color: var(--border);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-6px);
+        }
+
+        .dc-icon {
+            width: 58px;
+            height: 58px;
+            background: linear-gradient(135deg, var(--accent-dim2), var(--bg3));
+            border: 1.5px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .dc-name {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .dc-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .dc-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 26px;
+        }
+
+        .dc-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .dfc {
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 1px;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dfc svg {
+            color: var(--accent);
+        }
+
+        .dc-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-dim);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* ── COMPARE TABLE ── */
+        .compare-section {
+            padding: 100px 0 110px;
+            background: var(--bg2);
+            border-top: 1px solid var(--border3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .compare-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .compare-header h2 {
+            font-family: var(--serif);
+            font-size: clamp(28px, 4vw, 50px);
+            font-weight: 400;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+
+        .compare-header h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .compare-header p {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        table.ctable {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1.5px solid var(--border3);
+        }
+
+        table.ctable thead tr {
+            background: linear-gradient(135deg, #1a0a2e, #2d1060);
+        }
+
+        table.ctable thead th {
+            padding: 24px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.55);
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        table.ctable thead th:first-child {
+            text-align: left;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.38);
+        }
+
+        table.ctable thead th:last-child {
+            border-right: none;
+        }
+
+        table.ctable thead th.th-scale em {
+            font-style: italic;
+            font-family: var(--serif);
+            font-size: 18px;
+            display: block;
+            color: #e9d5ff;
+        }
+
+        .group-row td {
+            background: var(--bg2);
+            padding: 9px 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-right: 1px solid var(--border3);
+        }
+
+        table.ctable tbody tr {
+            border-bottom: 1px solid var(--border3);
+            transition: background 0.15s;
+        }
+
+        table.ctable tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        table.ctable tbody tr:not(.group-row):hover {
+            background: var(--bg2);
+        }
+
+        table.ctable tbody td {
+            padding: 15px 18px;
+            font-size: 13.5px;
+            text-align: center;
+            border-right: 1px solid var(--border3);
+            color: var(--text-muted);
+            vertical-align: middle;
+            line-height: 1.4;
+        }
+
+        table.ctable tbody td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        table.ctable tbody td:last-child {
+            border-right: none;
+        }
+
+        table.ctable tbody td.col-scale {
+            background: rgba(124, 58, 237, 0.04);
+        }
+
+        .c-yes {
+            color: var(--accent);
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .c-no {
+            color: var(--text-dim);
+            font-size: 17px;
+        }
+
+        .c-part {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .c-diamond {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 3px 8px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .c-adnote {
+            font-size: 10.5px;
+            color: var(--text-dim);
+            display: block;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* ── FAQ ── */
+        .faq-section {
+            padding: 100px 0;
+            background: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .faq-header h2 {
+            font-family: var(--serif);
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 400;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+
+        .faq-header h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: var(--bg2);
+            border: 1.5px solid var(--border3);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--border);
+        }
+
+        .faq-q {
+            padding: 18px 22px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            user-select: none;
+        }
+
+        .faq-icon {
+            flex-shrink: 0;
+            color: var(--accent);
+            transition: transform 0.25s;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.25s;
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            padding: 0 22px;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 220px;
+            padding: 0 22px 20px;
+        }
+
+        /* ── BOTTOM CTA ── */
+        .bottom-cta {
+            padding: 120px 40px;
+            text-align: center;
+            background: linear-gradient(160deg, #1a0a2e 0%, #2d1060 50%, #1a0a2e 100%);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .bottom-cta::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .cta-gem {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 20px;
+            position: relative;
+            filter: drop-shadow(0 4px 18px rgba(167, 139, 250, 0.55));
+        }
+
+        .bottom-cta h2 {
+            font-family: var(--serif);
+            font-size: clamp(32px, 5vw, 62px);
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: -2px;
+            line-height: 1.08;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .bottom-cta h2 em {
+            font-style: italic;
+            color: #c4b5fd;
+        }
+
+        .bottom-cta>p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 500px;
+            margin: 0 auto 44px;
+            line-height: 1.75;
+            position: relative;
+        }
+
+        .cta-big-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #a78bfa, #7c3aed);
+            color: #fff;
+            padding: 18px 46px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s;
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.5);
+            position: relative;
+            letter-spacing: 0.2px;
+        }
+
+        .cta-big-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 56px rgba(124, 58, 237, 0.65);
+        }
+
+        .cta-also {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .cta-also a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .cta-also a:hover {
+            color: #c4b5fd;
+        }
+
+        .cta-gs {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 36px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .cta-g {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .cta-g svg {
+            color: #a78bfa;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border3);
+            padding: 40px 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg2);
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:1100px) {
+            .tiers-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .diamond-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width:768px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 24px 60px;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+
+            .tiers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diamond-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-cta {
+                padding: 80px 24px;
+            }
+
+            table.ctable {
+                display: block;
+                overflow-x: auto;
+            }
+
+            footer {
+                padding: 32px 24px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="main-nav">
+        <a href="./index.html" class="nav-logo">
+            <span class="nav-logo-plain">Path</span><span class="nav-logo-italic">eown</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="./services.html">Industries</a></li>
+            <li><a href="./diamond-plan.html" class="active" style="color:var(--accent);font-weight:600;">Diamond
+                    Package</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <div class="nav-btns">
+            <a href="https://crm.patheown.com/" class="btn-login">Log In</a>
+            <a href="./index.html#hero-form" class="btn-nav">Book FREE Demo →</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-tag"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                <polyline points="2 9 12 9 22 9" />
+                <line x1="6" y1="3" x2="12" y2="22" />
+                <line x1="18" y1="3" x2="12" y2="22" />
+            </svg> Feature Breakdown by Tier</div>
+        <h1>The right package for where<br>your practice is <em>right now.</em></h1>
+        <p>Four tiers built around where your practice is today and where it's going. Book a FREE demo and we'll
+            recommend the right fit.</p>
+        <div class="hero-trust">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Every tier includes <strong>full HIPAA compliance</strong> and <strong>BAA signing on day one</strong>
+        </div>
+    </section>
+
+    <!-- TIER CARDS -->
+    <section class="tiers-section">
+        <div class="container">
+
+            <div class="tiers-header reveal">
+                <div class="section-label">Pricing Tiers</div>
+                <h2>Choose your tier.<br>Scale when you're <em>ready.</em></h2>
+                <p>Every tier is built on the same HIPAA compliant foundation. Start where it makes sense upgrade as
+                    your practice grows.</p>
+            </div>
+
+            <div class="tiers-grid">
+
+                <!-- TIER 00 STARTUP -->
+                <div class="tier-card reveal">
+                    <div class="tier-left">
+                        <div class="tier-num">Tier 00</div>
+                        <div class="tier-name">Startup</div>
+                        <div class="tier-tagline">New practices taking their first step into AI automation.</div>
+                        <div class="tier-hipaa">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            HIPAA Compliant
+                        </div>
+                    </div>
+                    <div class="tier-middle">
+                        <ul class="tier-features">
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>HIPAA-Compliant AI-Ready Automation CRM</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Paperwork automation workflows</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Basic appointment scheduling & reminders</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Digital intake form collection</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>BAA signed before day one</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Staff onboarding & training included</li>
+                        </ul>
+                        <div class="diamond-addon-block">
+                            <div class="diamond-addon-block-title"><span><svg width="22" height="22" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                                        <polyline points="2 9 12 9 22 9" />
+                                        <line x1="6" y1="3" x2="12" y2="22" />
+                                        <line x1="18" y1="3" x2="12" y2="22" />
+                                    </svg></span> Diamond Package Included</div>
+                            <div class="diamond-addon-items">
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="8" />
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                        </svg></span><span><strong
+                                            style="color:var(--text);font-weight:600;">SEO</strong> local search
+                                        optimization to help your practice rank and attract organic patients</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier-right">
+                        <a href="./index.html#demo-hero" class="btn-tier btn-outline">Get Started →</a>
+                    </div>
+                </div>
+
+                <!-- TIER 01 GROWTH -->
+                <div class="tier-card growth reveal">
+                    <div class="popular-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                            <polyline points="2 9 12 9 22 9" />
+                            <line x1="6" y1="3" x2="12" y2="22" />
+                            <line x1="18" y1="3" x2="12" y2="22" />
+                        </svg> Most Popular</div>
+                    <div class="tier-left">
+                        <div class="tier-num">Tier 01</div>
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-tagline">Single-location practices ready to automate and attract more patients.
+                        </div>
+                        <div class="tier-hipaa">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            HIPAA Compliant
+                        </div>
+                    </div>
+                    <div class="tier-middle">
+                        <ul class="tier-features">
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span><strong style="color:var(--text);font-weight:700;">Everything in
+                                    Startup</strong></li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>AI Patient Chatbot capturing new patients 24/7</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Custom Healthcare CRM with patient pipeline</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Automated appointment reminders & confirmations</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Full EHR integration & onboarding included</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span><strong style="color:var(--text);font-weight:600;">Fax API
+                                    Integration</strong> receive & route referrals automatically</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span><strong style="color:var(--text);font-weight:600;">Form Auto-Fill
+                                    Automation</strong> patient forms pre populated via AI</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span><strong style="color:var(--text);font-weight:600;">Review
+                                    Automation</strong> auto-requests Google reviews post-visit</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Google Ads management min. $3,000/mo ad budget required</li>
+                        </ul>
+                        <div class="diamond-addon-block">
+                            <div class="diamond-addon-block-title"><span><svg width="22" height="22" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                                        <polyline points="2 9 12 9 22 9" />
+                                        <line x1="6" y1="3" x2="12" y2="22" />
+                                        <line x1="18" y1="3" x2="12" y2="22" />
+                                    </svg></span> Diamond Package Included</div>
+                            <div class="diamond-addon-items">
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                            <path
+                                                d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                                            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                                            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                                        </svg></span><span><strong style="color:var(--text);font-weight:600;">High
+                                            Converting Funnel</strong> built specifically for your specialty, HIPAA
+                                        safe, built for your specialty</span></div>
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="18" y1="20" x2="18" y2="10" />
+                                            <line x1="12" y1="20" x2="12" y2="4" />
+                                            <line x1="6" y1="20" x2="6" y2="14" />
+                                            <line x1="2" y1="20" x2="22" y2="20" />
+                                        </svg></span><span><strong style="color:var(--text);font-weight:600;">Google Ads
+                                            Management</strong> targeted campaigns to flood your practice with qualified
+                                        leads</span></div>
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="8" />
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                        </svg></span><span><strong
+                                            style="color:var(--text);font-weight:600;">SEO</strong> local & specialty
+                                        search optimization to rank and attract organic patients</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier-right">
+                        <a href="./index.html#demo-hero" class="btn-tier btn-fill">Start Growth →</a>
+                    </div>
+                </div>
+
+                <!-- TIER 02 SCALE -->
+                <div class="tier-card scale reveal">
+                    <div class="popular-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg> Most Impactful</div>
+                    <div class="tier-left">
+                        <div class="tier-num">Tier 02</div>
+                        <div class="tier-name">Scale</div>
+                        <div class="tier-tagline">Growing practices and multi provider clinics ready to scale fast.
+                        </div>
+                        <div class="tier-hipaa">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            HIPAA Compliant
+                        </div>
+                    </div>
+                    <div class="tier-middle">
+                        <ul class="tier-features">
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span><strong style="color:var(--text);font-weight:700;">Everything in
+                                    Growth</strong></li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>AI Medical Notes complete clinical docs daily</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Full patient recall & re-engagement automation</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Insurance verification & pre auth automation</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Multi provider scheduling & waitlist optimization</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Bi-weekly strategy & performance calls</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Google Ads min. $6,000/mo ad budget required</li>
+                        </ul>
+                        <div class="diamond-addon-block">
+                            <div class="diamond-addon-block-title"><span><svg width="22" height="22" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                                        <polyline points="2 9 12 9 22 9" />
+                                        <line x1="6" y1="3" x2="12" y2="22" />
+                                        <line x1="18" y1="3" x2="12" y2="22" />
+                                    </svg></span> Diamond Package Included</div>
+                            <div class="diamond-addon-items">
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                            <path
+                                                d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                                            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                                            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                                        </svg></span><span><strong style="color:var(--text);font-weight:600;">High
+                                            Converting Funnel</strong> built specifically for your specialty, HIPAA
+                                        safe, built for your specialty</span></div>
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="18" y1="20" x2="18" y2="10" />
+                                            <line x1="12" y1="20" x2="12" y2="4" />
+                                            <line x1="6" y1="20" x2="6" y2="14" />
+                                            <line x1="2" y1="20" x2="22" y2="20" />
+                                        </svg></span><span><strong style="color:var(--text);font-weight:600;">Google Ads
+                                            Management</strong> targeted campaigns to flood your practice with qualified
+                                        leads</span></div>
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="4" />
+                                            <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                                            <path d="M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12" />
+                                        </svg></span><span><strong style="color:var(--text);font-weight:600;">Data
+                                            Engineering</strong> unified EHR + ad + CRM pipeline with real time
+                                        dashboards</span></div>
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="8" />
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                        </svg></span><span><strong
+                                            style="color:var(--text);font-weight:600;">SEO</strong> local & specialty
+                                        search optimization to rank and attract organic patients</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier-right">
+                        <a href="./index.html#demo-hero" class="btn-tier btn-scale">Start Scaling →</a>
+                    </div>
+                </div>
+
+                <!-- TIER 03 ENTERPRISE -->
+                <div class="tier-card reveal">
+                    <div class="tier-left">
+                        <div class="tier-num">Tier 03</div>
+                        <div class="tier-name">Enterprise</div>
+                        <div class="tier-tagline">Multi location groups and health systems. Fully custom-built.</div>
+                        <div class="tier-hipaa">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            HIPAA Compliant
+                        </div>
+                    </div>
+                    <div class="tier-middle">
+                        <ul class="tier-features">
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span><strong style="color:var(--text);font-weight:700;">Everything in
+                                    Scale</strong></li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Full AI Healthcare Operating System across all departments</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Custom AI model trained on your clinical workflows</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Multi location deployment with unified reporting</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>Priority support, weekly reviews & quarterly compliance audit</li>
+                            <li><span class="fc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3.5">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg></span>SLA + uptime guarantees with on-site training available</li>
+                        </ul>
+                        <div class="diamond-addon-block">
+                            <div class="diamond-addon-block-title"><span><svg width="22" height="22" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                                        <polyline points="2 9 12 9 22 9" />
+                                        <line x1="6" y1="3" x2="12" y2="22" />
+                                        <line x1="18" y1="3" x2="12" y2="22" />
+                                    </svg></span> Diamond Package Included</div>
+                            <div class="diamond-addon-items">
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                            <path
+                                                d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                                            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                                            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                                        </svg></span><span><strong style="color:var(--text);font-weight:600;">High
+                                            Converting Funnel</strong> built specifically for your specialty, HIPAA
+                                        safe, built for your specialty</span></div>
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="18" y1="20" x2="18" y2="10" />
+                                            <line x1="12" y1="20" x2="12" y2="4" />
+                                            <line x1="6" y1="20" x2="6" y2="14" />
+                                            <line x1="2" y1="20" x2="22" y2="20" />
+                                        </svg></span><span><strong style="color:var(--text);font-weight:600;">Google Ads
+                                            Management</strong> targeted campaigns to flood your practice with qualified
+                                        leads</span></div>
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="4" />
+                                            <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                                            <path d="M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12" />
+                                        </svg></span><span><strong style="color:var(--text);font-weight:600;">Data
+                                            Engineering</strong> unified EHR + ad + CRM pipeline with real time
+                                        dashboards</span></div>
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <circle cx="12" cy="12" r="6" />
+                                            <circle cx="12" cy="12" r="2" />
+                                        </svg></span><span><strong style="color:var(--text);font-weight:600;">Dedicated
+                                            Healthcare AI Strategist & Account Manager</strong></span></div>
+                                <div class="diamond-addon-item"><span class="diamond-addon-item-icon"><svg width="22"
+                                            height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="8" />
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                        </svg></span><span><strong
+                                            style="color:var(--text);font-weight:600;">SEO</strong> local & specialty
+                                        search optimization to rank and attract organic patients</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier-right">
+                        <a href="./index.html#demo-hero" class="btn-tier btn-outline">Let's Talk →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DIAMOND PACKAGE MARKETING SECTION -->
+    <section class="diamond-section">
+        <div class="container">
+            <div class="diamond-section-header reveal">
+                <div class="section-label"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                        <polyline points="2 9 12 9 22 9" />
+                        <line x1="6" y1="3" x2="12" y2="22" />
+                        <line x1="18" y1="3" x2="12" y2="22" />
+                    </svg> Diamond Package</div>
+                <h2>Marketing built in.<br><em>At every level.</em></h2>
+                <p>Every tier includes at least one Diamond Package service. The higher the tier, the more of the full
+                    acquisition engine you unlock from SEO to Google Ads to a custom-built data pipeline.</p>
+                <div class="diamond-exclusive" style="margin-top:24px;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    SEO All Tiers &nbsp;·&nbsp; Landing Page + Ads Growth, Scale & Enterprise &nbsp;·&nbsp; Data
+                    Engineering Scale & Enterprise
+                </div>
+            </div>
+
+            <div class="diamond-cards reveal">
+
+                <!-- SEO -->
+                <div class="diamond-card">
+                    <div class="dc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg></div>
+                    <div class="dc-name">SEO</div>
+                    <div class="dc-sub">Local and specialty search optimization to help your practice rank organically
+                        and attract patients actively searching for your services.</div>
+                    <ul class="dc-features">
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Local SEO Google Business Profile & map pack ranking</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Specialty keyword research & on-page optimization</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Citation building & directory listings</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Monthly ranking & organic traffic reporting</li>
+                    </ul>
+                    <div class="dc-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg> All Tiers</div>
+                </div>
+
+                <!-- LANDING PAGE -->
+                <div class="diamond-card">
+                    <div class="dc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                            <path
+                                d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                        </svg></div>
+                    <div class="dc-name">High Converting Funnel</div>
+                    <div class="dc-sub">A high-converting, HIPAA compliant page built for your specialty engineered to
+                        turn ad traffic into booked strategy calls.</div>
+                    <ul class="dc-features">
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Specialty specific design, copy & CTA structure</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Integrated demo booking form & AI lead capture</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>HIPAA compliant form data handling & routing</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>A/B test-ready optimized on an ongoing basis</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Mobile-first, fast-loading, conversion-tracked</li>
+                    </ul>
+                    <div class="dc-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg> Growth, Scale &amp; Enterprise</div>
+                </div>
+
+                <!-- GOOGLE ADS -->
+                <div class="diamond-card">
+                    <div class="dc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                            <line x1="2" y1="20" x2="22" y2="20" />
+                        </svg></div>
+                    <div class="dc-name">Google Ads Management</div>
+                    <div class="dc-sub">Full service Google Ads campaigns built to flood your practice with qualified
+                        patient leads managed daily by healthcare marketing specialists.</div>
+                    <ul class="dc-features">
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Campaign build, keyword research & ad copy</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Specialty specific geo-targeting & intent audiences</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Daily bid optimization & budget pacing</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Google Local Services Ads setup & verification</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Conversion tracking tied to booked appointments</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Monthly ROI report leads, cost per patient, revenue</li>
+                    </ul>
+                    <div class="dc-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg> Growth, Scale &amp; Enterprise</div>
+                </div>
+
+                <!-- DATA ENGINEERING -->
+                <div class="diamond-card">
+                    <div class="dc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                            <path d="M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12" />
+                        </svg></div>
+                    <div class="dc-name">Data Engineering</div>
+                    <div class="dc-sub">We connect your EHR, CRM, ad platforms and AI systems into one live intelligence
+                        layer so you always know exactly what's driving revenue and what isn't.</div>
+                    <ul class="dc-features">
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>HIPAA compliant patient data pipeline build</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>EHR + CRM + Google Ads data unification</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Real time lead & patient acquisition dashboards</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Automated reporting revenue, no-shows, ad ROI</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Patient LTV, churn & retention analytics</li>
+                        <li><span class="dfc"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Custom KPI alerts & anomaly detection</li>
+                    </ul>
+                    <div class="dc-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg> Scale &amp; Enterprise Only</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARE TABLE -->
+    <section class="compare-section">
+        <div class="container" style="max-width:1100px;">
+            <div class="compare-header reveal">
+                <div class="section-label">Full Comparison</div>
+                <h2>Compare every tier <em>side by side.</em></h2>
+                <p>See exactly what is included at each level so you can choose with confidence.</p>
+            </div>
+            <table class="ctable reveal">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Startup</th>
+                        <th>Growth</th>
+                        <th class="th-scale"><em>Scale <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                                    <polyline points="2 9 12 9 22 9" />
+                                    <line x1="6" y1="3" x2="12" y2="22" />
+                                    <line x1="18" y1="3" x2="12" y2="22" />
+                                </svg></em></th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="group-row">
+                        <td colspan="5">Core Platform</td>
+                    </tr>
+                    <tr>
+                        <td>HIPAA Compliance + BAA Signing</td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>AI-Ready Automation CRM</td>
+                        <td><span class="c-part">Basic</span></td>
+                        <td><span class="c-part">Advanced</span></td>
+                        <td class="col-scale"><span class="c-part">Full</span></td>
+                        <td><span class="c-part">Enterprise</span></td>
+                    </tr>
+                    <tr>
+                        <td>Paperwork & Admin Automation</td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Digital Intake Form Collection</td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Staff Onboarding & Training</td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+
+                    <tr class="group-row">
+                        <td colspan="5">Patient Automation</td>
+                    </tr>
+                    <tr>
+                        <td>Appointment Scheduling & Reminders</td>
+                        <td><span class="c-part">Basic</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>24/7 AI Patient Chatbot</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Fax API Integration</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Form Auto-Fill Automation</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Review Generation Automation</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Patient Recall Campaigns</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+
+                    <tr class="group-row">
+                        <td colspan="5">Clinical Tools</td>
+                    </tr>
+                    <tr>
+                        <td>EHR Integration</td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                        <td class="col-scale"><span class="c-part">Unlimited</span></td>
+                        <td><span class="c-part">Unlimited</span></td>
+                    </tr>
+                    <tr>
+                        <td>AI Medical Notes & Documentation</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Insurance Auth & Pre-Auth</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Multi-Provider Scheduling</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Bi-Weekly Strategy Calls</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-yes">✓</span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+
+                    <tr class="group-row">
+                        <td colspan="5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                                <polyline points="2 9 12 9 22 9" />
+                                <line x1="6" y1="3" x2="12" y2="22" />
+                                <line x1="18" y1="3" x2="12" y2="22" />
+                            </svg> Diamond Package Marketing & Growth</td>
+                    </tr>
+                    <tr>
+                        <td>SEO Local & Specialty Search</td>
+                        <td><span class="c-diamond">✓ Included</span></td>
+                        <td><span class="c-diamond">✓ Included</span></td>
+                        <td class="col-scale"><span class="c-diamond">✓ Included</span></td>
+                        <td><span class="c-diamond">✓ Included</span></td>
+                    </tr>
+                    <tr>
+                        <td>High Converting Funnel</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-diamond">✓ Included</span></td>
+                        <td class="col-scale"><span class="c-diamond">✓ Included</span></td>
+                        <td><span class="c-diamond">✓ Included</span></td>
+                    </tr>
+                    <tr>
+                        <td>Google Ads Management</td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-diamond">✓ Included</span><br><span class="c-adnote">Min.
+                                $3,000/mo ad spend</span></td>
+                        <td class="col-scale"><span class="c-diamond">✓ Included</span><br><span class="c-adnote">Min.
+                                $6,000/mo ad spend</span></td>
+                        <td><span class="c-diamond">✓ Custom</span></td>
+                    </tr>
+                    <tr>
+                        <td>Data Engineering Pipeline</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-diamond">✓ Included</span></td>
+                        <td><span class="c-diamond">✓ Included</span></td>
+                    </tr>
+                    <tr>
+                        <td>Real-Time Performance Dashboard</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-diamond">✓ Included</span></td>
+                        <td><span class="c-diamond">✓ Included</span></td>
+                    </tr>
+                    <tr>
+                        <td>Dedicated AI Strategist & Account Manager</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-no"> </span></td>
+                        <td><span class="c-diamond">✓ Included</span></td>
+                    </tr>
+
+                    <tr class="group-row">
+                        <td colspan="5">Enterprise Only</td>
+                    </tr>
+                    <tr>
+                        <td>Full AI Healthcare Operating System</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Custom AI Model Training</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Multi-Location Deployment</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Weekly Reviews & Compliance Audits</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>SLA + Uptime Guarantees</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>On-Site Training Available</td>
+                        <td><span class="c-no"> </span></td>
+                        <td><span class="c-no"> </span></td>
+                        <td class="col-scale"><span class="c-no"> </span></td>
+                        <td><span class="c-yes">✓</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container" style="max-width:900px;">
+            <div class="faq-header reveal">
+                <div class="section-label">FAQ</div>
+                <h2>Frequently asked <em>questions.</em></h2>
+            </div>
+            <div class="faq-grid reveal">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Is Patheown truly HIPAA compliant?<svg class="faq-icon" width="14" height="14"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2.5">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg></div>
+                    <div class="faq-a">Yes, completely. We sign a Business Associate Agreement before any data is
+                        discussed or any system is built. Every tool uses end to end encryption, PHI-safe data handling,
+                        and operates fully within HIPAA guidelines from day one.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Does it integrate with my existing EHR?<svg class="faq-icon" width="14"
+                            height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2.5">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg></div>
+                    <div class="faq-a">Yes. Patheown integrates with most major EHR and practice management systems.
+                        There is no rip-and-replace required. We work with what you already have in place.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">What is the Fax API Integration?<svg class="faq-icon" width="14" height="14"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2.5">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg></div>
+                    <div class="faq-a">Our Fax API integration automatically receives inbound faxes referrals,
+                        authorizations, clinical documents and routes them directly into your CRM and EHR without manual
+                        intervention. No more staff manually checking fax machines.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">How does the Form Auto-Fill work?<svg class="faq-icon" width="14" height="14"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2.5">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg></div>
+                    <div class="faq-a">Using data already in your CRM and EHR, our AI pre-populates patient intake and
+                        clinical forms before appointments. Patients only verify, not fill from scratch cutting intake
+                        time by up to 80% and reducing errors significantly.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">What is included in the Diamond Package?<svg class="faq-icon" width="14"
+                            height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2.5">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg></div>
+                    <div class="faq-a">The Diamond Package, included with Scale, adds a custom conversion optimized
+                        landing page, full Google Ads management, and a data engineering pipeline that unifies your EHR,
+                        CRM, and ad performance into one real time dashboard built to flood your practice with qualified
+                        leads.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Is there a long term contract?<svg class="faq-icon" width="14" height="14"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2.5">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg></div>
+                    <div class="faq-a">No. There are no long term contracts. Our clients stay because the results speak
+                        for themselves. Month-to-month billing after the initial setup is complete.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Not sure which tier fits my practice?<svg class="faq-icon" width="14" height="14"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2.5">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg></div>
+                    <div class="faq-a">Book a free strategy call. We will audit your workflows, identify your biggest
+                        revenue leaks, and recommend the exact tier for your practice with no pressure and no commitment
+                        required.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-q">Can I upgrade tiers as my practice grows?<svg class="faq-icon" width="14"
+                            height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2.5">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg></div>
+                    <div class="faq-a">Absolutely. Many practices start on Startup or Growth, see the ROI, then move to
+                        Scale. Upgrades are seamless we expand your system with zero disruption to your existing
+                        workflows or patient experience.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="bottom-cta">
+        <span class="cta-gem"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 3 18 3 22 9 12 22 2 9 6 3" />
+                <polyline points="2 9 12 9 22 9" />
+                <line x1="6" y1="3" x2="12" y2="22" />
+                <line x1="18" y1="3" x2="12" y2="22" />
+            </svg></span>
+        <h2>Not sure where to start?<br><em>We will tell you.</em></h2>
+        <p>Book a FREE 30 minute strategy call. We'll map your biggest opportunities, recommend the right tier, and
+            answer every question no pressure, no commitment.</p>
+        <a href="./index.html#demo-hero" class="cta-big-btn">Book My FREE Strategy Call →</a>
+        <p class="cta-also" style="margin-top:18px;"><a href="./index.html#specialties">View
+                Specialties →</a></p>
+        <div class="cta-gs">
+            <div class="cta-g"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>HIPAA Compliant</div>
+            <div class="cta-g"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>BAA Signed Day One</div>
+            <div class="cta-g"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>No Credit Card Required</div>
+            <div class="cta-g"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>No Long-Term Contract</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <a href="patheown-landing-white-purple.html" class="nav-logo" style="font-size:20px;">
+            <span class="nav-logo-plain">Path</span><span class="nav-logo-italic">eown</span>
+        </a>
+        <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Industries</a></li>
+            <li><a href="./diamond-plan.html">Diamond Package</a></li>
+            <li><a href="./pricing.html">Pricing</a></li>
+            <li><a href="./index.html#hero-form">Book Demo</a></li>
+        </ul>
+        <span class="footer-copy">© 2025 Patheown · HIPAA Compliant · All rights reserved.</span>
+    </footer>
+
+    <script>
+        // SCROLL REVEAL
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('visible'), i * 90);
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // FAQ
+        function toggleFaq(item) {
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+    </script>
+</body>
+
+</html>

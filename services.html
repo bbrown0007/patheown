@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Healthcare Specialties We Serve | Patheown</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg2: #f7f5ff;
+            --bg3: #f0ecff;
+            --accent: #7c3aed;
+            --accent2: #6d28d9;
+            --accent-light: #a78bfa;
+            --accent-dim: rgba(124, 58, 237, 0.08);
+            --accent-dim2: rgba(124, 58, 237, 0.14);
+            --accent-glow: rgba(124, 58, 237, 0.22);
+            --text: #1a0a2e;
+            --text-muted: #6b5b95;
+            --text-dim: #b3a8cc;
+            --border: rgba(124, 58, 237, 0.2);
+            --border3: #ede9fe;
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans: 'DM Sans', sans-serif;
+            --shadow-sm: 0 2px 8px rgba(124, 58, 237, 0.07);
+            --shadow-md: 0 8px 32px rgba(124, 58, 237, 0.1);
+            --shadow-lg: 0 24px 80px rgba(124, 58, 237, 0.14);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(124, 58, 237, 0.055) 1px, transparent 1px);
+            background-size: 38px 38px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ANNOUNCE */
+        .announce-bar {
+            background: linear-gradient(90deg, #7c3aed, #6d28d9, #7c3aed);
+            background-size: 200% auto;
+            animation: shimmer 4s linear infinite;
+            color: #fff;
+            text-align: center;
+            padding: 10px 24px;
+            font-size: 13px;
+            font-weight: 500;
+            position: relative;
+            z-index: 101;
+        }
+
+        .announce-bar a {
+            color: #e9d5ff;
+            text-decoration: underline;
+            margin-left: 8px;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 36px;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 64px;
+            background: rgba(255, 255, 255, 0.93);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border3);
+            box-shadow: 0 1px 0 rgba(124, 58, 237, 0.07);
+        }
+
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 26px;
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+            letter-spacing: -.5px;
+        }
+
+        .nav-logo-plain {
+            color: var(--text);
+            font-style: normal;
+        }
+
+        .nav-logo-italic {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-btns {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-login {
+            border: 1.5px solid var(--border);
+            color: var(--accent);
+            background: transparent;
+            padding: 9px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .btn-login:hover {
+            background: var(--accent-dim);
+        }
+
+        .btn-nav {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .2s;
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .btn-nav:hover {
+            background: var(--accent2);
+            transform: translateY(-1px);
+        }
+
+        .tool-icon svg,
+        .auto-icon svg,
+        .what-icon svg,
+        .pillar-icon svg,
+        .dc-icon svg,
+        .sol-icon svg,
+        .step-circle svg,
+        .g-badge svg,
+        .ind-icon svg,
+        .pain-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: currentColor;
+            flex-shrink: 0;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            background: var(--accent-dim);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 999px;
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            z-index: 1;
+            padding: 160px 48px 80px;
+            background: linear-gradient(180deg, #faf8ff 0%, #fff 70%);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            pointer-events: none;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: fadeUp .6s ease both;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(40px, 6vw, 72px);
+            line-height: 1.07;
+            letter-spacing: -2px;
+            font-weight: 400;
+            max-width: 760px;
+            margin: 0 auto 20px;
+            animation: fadeUp .7s .1s ease both;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0 auto 28px;
+            line-height: 1.75;
+            font-weight: 300;
+            animation: fadeUp .7s .2s ease both;
+            position: relative;
+        }
+
+        .hero-trust {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            border: 1.5px solid var(--border3);
+            border-radius: 12px;
+            padding: 11px 22px;
+            font-size: 14px;
+            color: var(--text-muted);
+            box-shadow: var(--shadow-sm);
+            animation: fadeUp .7s .3s ease both;
+            position: relative;
+        }
+
+        .hero-trust svg {
+            color: var(--accent);
+        }
+
+        .hero-trust strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* INDUSTRY GRID */
+        .industries-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0 120px;
+            background: var(--bg2);
+            border-top: 1px solid var(--border3);
+        }
+
+        .industries-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .industries-header h2 {
+            font-family: var(--serif);
+            font-size: clamp(28px, 4vw, 50px);
+            font-weight: 400;
+            letter-spacing: -1.5px;
+            margin-bottom: 14px;
+        }
+
+        .industries-header h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .industries-header p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .industries-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .industry-card {
+            background: #fff;
+            border: 1.5px solid var(--border3);
+            border-radius: 18px;
+            padding: 28px 32px;
+            transition: all .3s;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 60px 1fr 1fr auto;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent-light), var(--accent));
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        .industry-card:hover::before {
+            opacity: 1;
+        }
+
+        .industry-card:hover {
+            border-color: var(--border);
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .ind-icon {
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, var(--accent-dim2), var(--bg3));
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .ind-icon svg {
+            color: var(--accent);
+            stroke: var(--accent);
+        }
+
+        .ind-main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ind-name {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: -.3px;
+        }
+
+        .ind-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .ind-services {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-bottom: 0;
+        }
+
+        .ind-services li {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .ind-check {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .ind-check svg {
+            color: var(--accent);
+        }
+
+        .ind-cta-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .ind-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            background: var(--accent);
+            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: 9px;
+            transition: all .2s;
+            box-shadow: 0 4px 12px var(--accent-glow);
+            white-space: nowrap;
+        }
+
+        .ind-cta:hover {
+            background: var(--accent2);
+            transform: translateY(-1px);
+        }
+
+        /* WHAT WE DO FOR ALL */
+        .what-section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0;
+            background: #fff;
+            border-top: 1px solid var(--border3);
+        }
+
+        .what-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .what-header h2 {
+            font-family: var(--serif);
+            font-size: clamp(28px, 4vw, 50px);
+            font-weight: 400;
+            letter-spacing: -1.5px;
+            margin-bottom: 14px;
+        }
+
+        .what-header h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .what-header p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .what-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .what-card {
+            background: var(--bg2);
+            border: 1.5px solid var(--border3);
+            border-radius: 18px;
+            padding: 28px 22px;
+            text-align: center;
+            transition: all .3s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .what-card:hover {
+            border-color: var(--border);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .what-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--accent-dim2), var(--bg3));
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin: 0 auto 16px;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .what-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .what-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 100px 48px;
+            text-align: center;
+            background: linear-gradient(160deg, #1a0a2e 0%, #2d1060 100%);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-family: var(--serif);
+            font-size: clamp(30px, 5vw, 56px);
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: -2px;
+            line-height: 1.08;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .cta-section h2 em {
+            font-style: italic;
+            color: #c4b5fd;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 480px;
+            margin: 0 auto 40px;
+            line-height: 1.75;
+            position: relative;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #a78bfa, #7c3aed);
+            color: #fff;
+            padding: 17px 44px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all .25s;
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.5);
+            position: relative;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 56px rgba(124, 58, 237, 0.65);
+        }
+
+        .cta-gs {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 28px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .cta-g {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .cta-g svg {
+            color: #a78bfa;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border3);
+            padding: 40px 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg2);
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        @media(max-width:1024px) {
+            nav {
+                padding: 16px 24px;
+                top: 46px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 130px 24px 60px;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+
+            .industries-grid {
+                flex-direction: column;
+            }
+
+            .what-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-section {
+                padding: 80px 24px;
+            }
+
+            footer {
+                padding: 32px 24px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media(max-width:600px) {
+            .industries-grid {
+                flex-direction: column;
+            }
+
+            .industry-card {
+                grid-template-columns: 1fr;
+            }
+
+            .ind-cta-wrap {
+                justify-content: flex-start;
+            }
+
+            .what-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="announce-bar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="16" rx="1" />
+            <path d="M12 2v4M5 6V4M19 6V4" />
+            <path d="M12 11v4M10 13h4" />
+        </svg> AI automation built for healthcare HIPAA compliant from day one
+        <a href="#index.html#demo-hero">Book your FREE strategy demo →</a>
+    </div>
+
+    <nav id="main-nav">
+        <a href="./index.html" class="nav-logo">
+            <span class="nav-logo-plain">Path</span><span class="nav-logo-italic">eown</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="./services.html">Industries</a></li>
+            <li><a href="./diamond-plan.html" class="active" style="color:var(--accent);font-weight:600;">Diamond
+                    Package</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <div class="nav-btns">
+            <a href="https://crm.patheown.com/" class="btn-login">Log In</a>
+            <a href="./index.html#hero-form" class="btn-nav">Book FREE Demo →</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-tag">Healthcare AI Automation</div>
+        <h1>Built for every corner of <em>healthcare.</em></h1>
+        <p>Patheown serves healthcare practices across every specialty automating admin, eliminating paperwork, and
+            flooding pipelines with the right patients. 100% HIPAA compliant across every build.</p>
+        <div class="hero-trust">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Serving <strong>500+ healthcare practices</strong> across the United States
+        </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="industries-section">
+        <div class="container">
+            <div class="industries-header reveal">
+                <div class="section-label">Healthcare Specialties We Serve</div>
+                <h2>If you see patients,<br>we <em>automate your practice.</em></h2>
+                <p>Every system is built specifically for your specialty not adapted from a generic template. Purpose
+                    built workflows, terminology, and compliance for your exact type of practice.</p>
+            </div>
+
+            <div class="industries-grid">
+
+                <div class="industry-card reveal">
+                    <div class="ind-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7" />
+                            <line x1="16.5" y1="16.5" x2="22" y2="22" />
+                            <circle cx="11" cy="11" r="3" opacity=".4" />
+                        </svg></div>
+                    <div class="ind-main">
+                        <div class="ind-name">Dermatology</div>
+                        <div class="ind-desc">Long waitlists and high no-show rates are the norm until now. We automate
+                            waitlist management, prior authorizations, and post-procedure follow-ups across your full
+                            patient panel.</div>
+                    </div>
+                    <ul class="ind-services">
+                        <li><span class="ind-check"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Waitlist & cancellation fill automation</li>
+                        <li><span class="ind-check"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Prior authorization workflows</li>
+                        <li><span class="ind-check"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Post-procedure follow-up sequences</li>
+                        <li><span class="ind-check"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="3.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg></span>Cosmetic vs medical patient CRM segmentation</li>
+                    </ul>
+                    <div class="ind-cta-wrap"><a href="./index.html#hero-form" class="ind-cta">Book Demo →</a></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE DO FOR ALL -->
+    <section class="what-section">
+        <div class="container">
+            <div class="what-header reveal">
+                <div class="section-label">Core Capabilities</div>
+                <h2>What we build for<br><em>every specialty.</em></h2>
+                <p>Regardless of your specialty, every Patheown build includes the same HIPAA compliant foundation
+                    customized to your exact clinical workflows.</p>
+            </div>
+            <div class="what-grid reveal">
+                <div class="what-card">
+                    <div class="what-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="10" rx="2" />
+                            <circle cx="8" cy="16" r="1.5" />
+                            <circle cx="16" cy="16" r="1.5" />
+                            <path d="M9 11V7a3 3 0 0 1 6 0v4" />
+                            <path d="M12 3v2" />
+                        </svg></div>
+                    <h3>AI Automation CRM</h3>
+                    <p>Scheduling, intake, follow-ups, recalls, and billing workflows automated end to end within your
+                        existing EHR.</p>
+                </div>
+                <div class="what-card">
+                    <div class="what-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <line x1="10" y1="9" x2="8" y2="9" />
+                        </svg></div>
+                    <h3>AI Medical Notes</h3>
+                    <p>Providers complete accurate clinical documentation in minutes rather than hours across every
+                        specialty.</p>
+                </div>
+                <div class="what-card">
+                    <div class="what-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg></div>
+                    <h3>Diamond Marketing Package</h3>
+                    <p>SEO, Google Ads, a high converting patient funnel, and a data pipeline that floods your practice
+                        with the right patients.</p>
+                </div>
+                <div class="what-card">
+                    <div class="what-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg></div>
+                    <h3>HIPAA Compliance</h3>
+                    <p>BAA signed before day one. PHI-safe infrastructure. End to end encryption. Zero compliance risk
+                        on every build.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Your specialty. Your patients.<br><em>Your system built right.</em></h2>
+        <p>Book a FREE 30 minute strategy call. We will show you exactly what Patheown automates for your specific type
+            of practice before you spend a dollar.</p>
+        <a href="./index.html#demo-hero" class="btn-cta">Book My FREE Strategy Demo →</a>
+        <div class="cta-gs">
+            <div class="cta-g"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>HIPAA Compliant</div>
+            <div class="cta-g"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>BAA Day One</div>
+            <div class="cta-g"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>No Commitment</div>
+            <div class="cta-g"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>No Credit Card</div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="patheown-landing-white-purple.html" class="nav-logo" style="font-size:20px;">
+            <span class="nav-logo-plain">Path</span><span class="nav-logo-italic">eown</span>
+        </a>
+        <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Industries</a></li>
+            <li><a href="./diamond-plan.html">Diamond Package</a></li>
+            <li><a href="./pricing.html">Pricing</a></li>
+            <li><a href="./index.html#hero-form">Book Demo</a></li>
+        </ul>
+        <span class="footer-copy">© 2025 Patheown · HIPAA Compliant · All rights reserved.</span>
+    </footer>
+
+    <script>
+        const bar = document.querySelector('.announce-bar');
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            const h = bar.offsetHeight;
+            nav.style.top = window.scrollY > h ? '0' : Math.max(0, h - window.scrollY) + 'px';
+        });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); }
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>

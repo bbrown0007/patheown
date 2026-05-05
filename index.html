@@ -1,3092 +1,1016 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Patheown AI Automation Built for Healthcare Practices</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      :root {
-        --bg: #fff;
-        --surface: #f7f6ff;
-        --card: #fff;
-        --border: #e2e0f5;
-        --border-h: #b3adff;
-        --accent: #6c63ff;
-        --accent-dk: #5550d4;
-        --accent-lt: #ede9ff;
-        --text: #0f0c2e;
-        --muted: #5c5880;
-        --dim: #9490b8;
-        --green: #16a34a;
-        --green-bg: #f0fdf4;
-        --green-bdr: #bbf7d0;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: "DM Sans", sans-serif;
-        overflow-x: hidden;
-        line-height: 1.6;
-      }
-      body,
-      a,
-      button,
-      input {
-        -webkit-tap-highlight-color: transparent;
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patheown AI Automation & Marketing for Healthcare Practices</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#ffffff; --bg2:#f7f5ff; --bg3:#f0ecff;
+    --accent:#7c3aed; --accent2:#6d28d9;
+    --accent-light:#a78bfa;
+    --accent-dim:rgba(124,58,237,0.08);
+    --accent-dim2:rgba(124,58,237,0.14);
+    --accent-glow:rgba(124,58,237,0.22);
+    --text:#1a0a2e; --text-muted:#6b5b95; --text-dim:#b3a8cc;
+    --border:rgba(124,58,237,0.2); --border3:#ede9fe;
+    --red:#e11d48;
+    --serif:'Instrument Serif',Georgia,serif;
+    --sans:'DM Sans',sans-serif;
+    --shadow-sm:0 2px 8px rgba(124,58,237,0.07);
+    --shadow-md:0 8px 32px rgba(124,58,237,0.1);
+    --shadow-lg:0 24px 80px rgba(124,58,237,0.14);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;}
 
-      /* NAV */
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 200;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 56px;
-        height: 70px;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border);
-        box-shadow: 0 1px 16px rgba(108, 99, 255, 0.06);
-      }
-      .nav-logo {
-        font-family: "Instrument Serif", serif;
-        font-size: 26px;
-        text-decoration: none;
-      }
-      .logo-plain {
-        color: var(--text);
-      }
-      .logo-em {
-        color: var(--accent);
-        font-style: italic;
-      }
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-      }
-      .nav-links a {
-        font-size: 14.5px;
-        font-weight: 500;
-        color: var(--muted);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .nav-links a:hover {
-        color: var(--text);
-      }
-      .nav-cta {
-        background: var(--accent);
-        color: #fff;
-        font-size: 14px;
-        font-weight: 700;
-        padding: 10px 22px;
-        border-radius: 100px;
-        text-decoration: none;
-        transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-      }
-      .nav-cta:hover {
-        background: var(--accent-dk);
-        transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(108, 99, 255, 0.3);
-      }
+  /* ANIMATIONS */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes shimmer{0%{background-position:0% center;}100%{background-position:200% center;}}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.75);}}
+  @keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
 
-      /* HAMBURGER */
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        width: 36px;
-        height: 36px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px;
-        border-radius: 8px;
-        transition: background 0.2s;
-      }
-      .hamburger:hover {
-        background: var(--surface);
-      }
-      .hamburger span {
-        display: block;
-        width: 22px;
-        height: 2.5px;
-        background: var(--text);
-        border-radius: 2px;
-        transition: all 0.28s ease;
-      }
-      .hamburger.open span:nth-child(1) {
-        transform: translateY(7.5px) rotate(45deg);
-      }
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-      }
-      .hamburger.open span:nth-child(3) {
-        transform: translateY(-7.5px) rotate(-45deg);
-      }
+  /* ANNOUNCEMENT BAR */
+  .announce-bar{
+    background:linear-gradient(90deg,#7c3aed,#6d28d9,#7c3aed);
+    background-size:200% auto; animation:shimmer 4s linear infinite;
+    color:#fff; text-align:center; padding:10px 24px;
+    font-size:13px; font-weight:500; position:relative; z-index:101;
+  }
+  .announce-bar a{color:#e9d5ff;text-decoration:underline;margin-left:8px;}
+  .announce-bar a:hover{color:#fff;}
 
-      /* MOBILE MENU DRAWER */
-      .mobile-menu {
-        display: none;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        z-index: 199;
-        background: #fff;
-        border-bottom: 2px solid var(--border);
-        box-shadow: 0 8px 32px rgba(108, 99, 255, 0.12);
-        padding: 20px 24px 28px;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .mobile-menu.open {
-        display: flex;
-      }
-      .mobile-menu a {
-        font-size: 17px;
-        font-weight: 600;
-        color: var(--text);
-        text-decoration: none;
-        padding: 13px 16px;
-        border-radius: 12px;
-        transition: background 0.18s, color 0.18s;
-      }
-      .mobile-menu a:hover {
-        background: var(--surface);
-        color: var(--accent);
-      }
-      .mobile-menu .mob-cta {
-        background: var(--accent);
-        color: #fff;
-        text-align: center;
-        margin-top: 8px;
-        border-radius: 100px;
-        padding: 14px 16px;
-        font-weight: 700;
-      }
-      .mobile-menu .mob-cta:hover {
-        background: var(--accent-dk);
-        color: #fff;
-      }
+  /* NAV */
+  nav{
+    position:fixed; top:36px; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 64px;
+    background:rgba(255,255,255,0.93);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border3);
+    box-shadow:0 1px 0 rgba(124,58,237,0.07);
+    transition:top .3s;
+  }
+  .nav-logo{font-family:var(--serif);font-size:26px;text-decoration:none;display:flex;align-items:baseline;letter-spacing:-.5px;}
+  .nav-logo-plain{color:var(--text);font-style:normal;}
+  .nav-logo-italic{color:var(--accent);font-style:italic;}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{color:var(--text-muted);text-decoration:none;font-size:14px;font-weight:400;transition:color .2s;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-btns{display:flex;align-items:center;gap:10px;}
+  .btn-login{border:1.5px solid var(--border);color:var(--accent);background:transparent;padding:9px 20px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;}
+  .btn-login:hover{background:var(--accent-dim);}
+  .btn-nav{background:var(--accent);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px var(--accent-glow);}
+  .btn-nav:hover{background:var(--accent2);transform:translateY(-1px);}
 
-      /* HERO */
-      .hero-section {
-        background: linear-gradient(160deg, #fff 0%, #f7f5ff 55%, #ede9ff 100%);
-        padding: 110px 56px 80px;
-        position: relative;
-        overflow: hidden;
-      }
-      .hero-section::before {
-        content: "";
-        position: absolute;
-        top: -100px;
-        right: -100px;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(108, 99, 255, 0.12) 0%,
-          transparent 65%
-        );
-        pointer-events: none;
-      }
-      .hero-inner {
-        max-width: 1240px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 500px;
-        gap: 72px;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-      }
+  .tool-icon svg,.auto-icon svg,.what-icon svg,.pillar-icon svg,.dc-icon svg,.sol-icon svg,.step-circle svg,.g-badge svg,.ind-icon svg,.pain-icon svg { width:22px; height:22px; stroke:currentColor; flex-shrink:0; }
+  .container{max-width:1180px;margin:0 auto;padding:0 48px;}
+  .section-label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;background:var(--accent-dim);border:1px solid var(--border);padding:4px 12px;border-radius:999px;}
 
-      .hero-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        background: rgba(108, 99, 255, 0.08);
-        border: 1.5px solid rgba(108, 99, 255, 0.2);
-        border-radius: 100px;
-        padding: 7px 18px;
-        margin-bottom: 28px;
-        opacity: 0;
-        animation: up 0.5s 0.05s ease forwards;
-      }
-      .tag-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--accent);
-        animation: pulse 2s infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.35;
-        }
-      }
-      .hero-tag span {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--accent);
-      }
+  /* HERO */
+  .hero{
+    position:relative; min-height:100vh;
+    display:flex; align-items:center;
+    padding:160px 64px 80px;
+    background:linear-gradient(165deg,#faf8ff 0%,#fff 65%);
+    overflow:hidden;
+  }
+  .hero-blob{position:absolute;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.08) 0%,transparent 70%);top:50%;left:35%;transform:translate(-50%,-55%);pointer-events:none;}
+  .hero-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(124,58,237,0.1) 1px,transparent 1px);background-size:34px 34px;pointer-events:none;}
 
-      h1 {
-        font-family: "Instrument Serif", serif;
-        font-size: clamp(38px, 5vw, 64px);
-        font-weight: 400;
-        line-height: 1.07;
-        margin-bottom: 22px;
-        color: var(--text);
-        opacity: 0;
-        animation: up 0.6s 0.1s ease forwards;
-      }
-      h1 em {
-        font-style: italic;
-        color: var(--accent);
-      }
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 440px;gap:56px;align-items:center;max-width:1180px;margin:0 auto;width:100%;}
 
-      .hero-sub {
-        font-size: 19px;
-        font-weight: 300;
-        line-height: 1.8;
-        color: var(--muted);
-        max-width: 560px;
-        margin-bottom: 36px;
-        opacity: 0;
-        animation: up 0.6s 0.18s ease forwards;
-      }
-      .hero-sub b {
-        font-weight: 600;
-        color: var(--text);
-      }
+  .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--accent-dim);color:var(--accent);font-size:12px;font-weight:600;padding:7px 16px;border-radius:999px;margin-bottom:24px;letter-spacing:.6px;text-transform:uppercase;animation:fadeUp .6s ease both;}
+  .badge-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;}
 
-      .hero-ctas {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 44px;
-        flex-wrap: wrap;
-        opacity: 0;
-        animation: up 0.6s 0.26s ease forwards;
-      }
-      .btn-hero {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        background: var(--accent);
-        color: #fff;
-        font-size: 16px;
-        font-weight: 700;
-        padding: 16px 32px;
-        border-radius: 100px;
-        text-decoration: none;
-        transition: all 0.2s;
-        box-shadow: 0 4px 20px rgba(108, 99, 255, 0.25);
-      }
-      .btn-hero:hover {
-        background: var(--accent-dk);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 32px rgba(108, 99, 255, 0.35);
-      }
-      .btn-hero svg {
-        width: 17px;
-        height: 17px;
-        transition: transform 0.2s;
-      }
-      .btn-hero:hover svg {
-        transform: translateX(3px);
-      }
-      .btn-sec {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--muted);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .btn-sec:hover {
-        color: var(--accent);
-      }
+  h1{font-family:var(--serif);font-size:clamp(38px,5vw,68px);line-height:1.07;letter-spacing:-2px;font-weight:400;color:var(--text);animation:fadeUp .7s .1s ease both;}
+  h1 em{font-style:italic;color:var(--accent);}
 
-      .hero-trust {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        flex-wrap: wrap;
-        opacity: 0;
-        animation: up 0.6s 0.34s ease forwards;
-      }
-      .trust-pill {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--muted);
-      }
-      .trust-pill svg {
-        width: 15px;
-        height: 15px;
-        color: var(--green);
-      }
-      .t-sep {
-        width: 1px;
-        height: 16px;
-        background: var(--border);
-      }
+  .hero-sub{font-size:17px;color:var(--text-muted);max-width:520px;margin:20px 0 0;font-weight:300;line-height:1.75;animation:fadeUp .7s .2s ease both;}
 
-      /* HERO FORM */
-      .hero-form {
-        background: #fff;
-        border: 1.5px solid var(--border);
-        border-radius: 20px;
-        padding: 36px;
-        box-shadow: 0 16px 56px rgba(108, 99, 255, 0.14);
-        opacity: 0;
-        animation: up 0.7s 0.2s ease forwards;
-      }
-      .form-heading {
-        font-family: "Instrument Serif", serif;
-        font-size: 24px;
-        color: var(--text);
-        margin-bottom: 8px;
-        line-height: 1.25;
-      }
-      .form-heading em {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .form-sub-txt {
-        font-size: 15px;
-        color: var(--muted);
-        margin-bottom: 22px;
-        line-height: 1.65;
-      }
-      .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        margin-bottom: 12px;
-      }
-      .fg {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .fg.full {
-        grid-column: 1/-1;
-      }
-      .fg label {
-        font-size: 14.5px;
-        font-weight: 700;
-        color: var(--accent);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-      .fg input,
-      .fg select {
-        background: var(--surface);
-        border: 1.5px solid var(--border);
-        border-radius: 10px;
-        padding: 13px 16px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 15px;
-        color: var(--text);
-        outline: none;
-        transition: border-color 0.2s, box-shadow 0.2s;
-        -webkit-appearance: none;
-        width: 100%;
-      }
-      .fg input::placeholder {
-        color: var(--dim);
-      }
-      .fg input:focus,
-      .fg select:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
-      }
-      .fg select {
-        color: var(--text);
-      }
-      .form-btn {
-        width: 100%;
-        margin-top: 14px;
-        background: var(--accent);
-        color: #fff;
-        font-family: "DM Sans", sans-serif;
-        font-size: 16px;
-        font-weight: 700;
-        padding: 16px 24px;
-        border-radius: 100px;
-        border: none;
-        cursor: pointer;
-        transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        white-space: nowrap;
-      }
-      .form-btn:hover {
-        background: var(--accent-dk);
-        transform: translateY(-1px);
-        box-shadow: 0 10px 28px rgba(108, 99, 255, 0.3);
-      }
-      .form-btn svg {
-        width: 16px;
-        height: 16px;
-        flex-shrink: 0;
-        transition: transform 0.2s;
-      }
-      .form-btn:hover svg {
-        transform: translateX(3px);
-      }
-      .form-notes {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        margin-top: 11px;
-        flex-wrap: wrap;
-      }
-      .fn-item {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--muted);
-      }
-      .fn-item svg {
-        width: 12px;
-        height: 12px;
-        color: var(--green);
-      }
+  /* trust grid 2x2 */
+  .trust-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:36px;animation:fadeUp .7s .3s ease both;width:100%;max-width:480px;}
+  .trust-pill:last-child:nth-child(odd){grid-column:auto;}
+  .trust-pill{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--border3);border-radius:12px;padding:13px 16px;transition:border-color .2s,box-shadow .2s;box-shadow:0 1px 4px rgba(124,58,237,0.05);}
+  .trust-pill:hover{border-color:var(--border);box-shadow:var(--shadow-sm);}
+  .trust-pill-icon{width:34px;height:34px;background:var(--accent-dim);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border);}
+  .trust-pill-icon svg{color:var(--accent);}
+  .trust-pill-label{font-size:13px;font-weight:600;color:var(--text);line-height:1.2;}
+  .trust-pill-desc{font-size:11px;color:var(--text-muted);font-weight:400;}
 
-      /* PROOF STRIP */
-      .proof-strip {
-        background: var(--accent);
-        padding: 18px 56px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 36px;
-        flex-wrap: wrap;
-      }
-      .ps-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 15px;
-        font-weight: 600;
-        color: #fff;
-      }
-      .ps-item svg {
-        width: 16px;
-        height: 16px;
-        opacity: 0.9;
-      }
-      .ps-sep {
-        width: 1px;
-        height: 18px;
-        background: rgba(255, 255, 255, 0.3);
-      }
+  /* HERO FORM */
+  .hero-form-card{background:#fff;border:1.5px solid var(--border3);border-radius:24px;padding:36px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;animation:fadeUp .7s .2s ease both;z-index:1;}
+  .hero-form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-light),var(--accent),var(--accent-light));background-size:200% auto;animation:shimmer 3s linear infinite;}
+  .hero-form-title{font-family:var(--serif);font-size:21px;font-weight:400;color:var(--text);letter-spacing:-.5px;margin-bottom:4px;}
+  .hero-form-title em{font-style:italic;color:var(--accent);}
+  .hero-form-sub{font-size:13px;color:var(--text-muted);margin-bottom:22px;line-height:1.5;}
+  .hero-form-divider{height:1px;background:var(--border3);margin:0 -36px 22px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .form-group{margin-bottom:14px;}
+  .form-group label{display:block;font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:6px;}
+  .form-group input,.form-group select{width:100%;background:var(--bg2);border:1.5px solid var(--border3);border-radius:9px;color:var(--text);font-family:var(--sans);font-size:14px;padding:12px 14px;outline:none;transition:border-color .2s,box-shadow .2s;appearance:none;}
+  .form-group input::placeholder{color:var(--text-dim);}
+  .form-group input:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,58,237,0.1);background:#fff;}
+  .btn-submit{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:15px;font-family:var(--sans);font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;box-shadow:0 6px 24px var(--accent-glow);margin-top:4px;}
+  .btn-submit:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 10px 36px var(--accent-glow);}
+  .form-note{font-size:11.5px;color:var(--text-dim);text-align:center;margin-top:11px;}
 
-      /* PAIN */
-      .pain-section {
-        padding: 96px 56px;
-        background: #fff;
-      }
-      .sw {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .section-label {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 16px;
-      }
-      .sl-line {
-        width: 36px;
-        height: 2.5px;
-        background: var(--accent);
-        border-radius: 2px;
-      }
-      .sl-text {
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--accent);
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-      .section-headline {
-        font-family: "Instrument Serif", serif;
-        font-size: clamp(30px, 4vw, 50px);
-        font-weight: 400;
-        line-height: 1.1;
-        color: var(--text);
-        margin-bottom: 12px;
-      }
-      .section-headline em {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .section-sub {
-        font-size: 18px;
-        color: var(--muted);
-        max-width: 580px;
-        line-height: 1.8;
-        margin-bottom: 0;
-      }
+  /* SOCIAL PROOF STRIP */
+  .proof-strip{background:var(--bg2);border-top:1px solid var(--border3);border-bottom:1px solid var(--border3);padding:28px 0;position:relative;z-index:1;}
+  .proof-inner{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;}
+  .proof-stat{text-align:center;}
+  .proof-num{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--accent);letter-spacing:-1px;line-height:1;}
+  .proof-label{font-size:12px;color:var(--text-muted);margin-top:4px;}
+  .proof-div{width:1px;height:40px;background:var(--border3);}
 
-      /* PAIN TOP ROW: text left, video right */
-      .pain-top-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 56px;
-        align-items: center;
-        margin-bottom: 52px;
-      }
-      .pain-top-left {
-      }
-      .pain-top-left .section-sub {
-        margin-bottom: 0;
-      }
-      /* ORIGINAL VIDEO PLAYER */
-      .video-wrap {
-        display: flex;
-        width: 100%;
-        height: auto;
-        background: #0f0c2e;
-        border: 1.5px solid rgba(108, 99, 255, 0.25);
-        border-radius: 16px;
-        overflow: hidden;
-        transition: border-color 0.3s, box-shadow 0.3s;
-        position: relative;
-      }
-      .video-wrap:hover {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 1px var(--accent), 0 20px 48px rgba(108, 99, 255, 0.2);
-      }
-      .video-bg {
-        width: 100%;
-        height: 100%;
-        object-position: center;
-        object-fit: cover;
-        z-index: 1;
-        background: linear-gradient(
-          135deg,
-          #0a0820 0%,
-          #110d2e 50%,
-          #0a0820 100%
-        );
-      }
-      .video-bg::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: linear-gradient(
-            rgba(108, 99, 255, 0.07) 1px,
-            transparent 1px
-          ),
-          linear-gradient(90deg, rgba(108, 99, 255, 0.07) 1px, transparent 1px);
-        background-size: 32px 32px;
-      }
-      .video-bg::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 220px;
-        height: 220px;
-        background: radial-gradient(
-          circle,
-          rgba(108, 99, 255, 0.22) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-      }
-      .play-btn {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: clamp(42px, 7vw, 64px);
-        height: clamp(42px, 7vw, 64px);
-        border-radius: 50%;
-        background: var(--accent);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 0 14px rgba(108, 99, 255, 0.14),
-          0 0 0 28px rgba(108, 99, 255, 0.06);
-        transition: opacity 0.25s ease, transform 0.25s ease;
-        z-index: 10;
-      }
-      .play-btn.hidden {
-        opacity: 0;
-        pointer-events: none;
-      }
-      .video-wrap:hover .play-btn {
-        transform: translate(-50%, -50%) scale(1.1);
-        background: var(--accent-dk);
-      }
-      .play-btn svg {
-        width: 22px;
-        height: 22px;
-        fill: #fff;
-        margin-left: 3px;
-      }
-      .video-label {
-        position: absolute;
-        bottom: 14px;
-        left: 14px;
-        background: rgba(10, 8, 32, 0.82);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(108, 99, 255, 0.25);
-        border-radius: 8px;
-        padding: 7px 14px;
-        font-size: clamp(6px, 2vw, 13px);
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.7);
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        z-index: 11;
-        transition: opacity 0.3s ease;
-      }
+  /* PROBLEM SECTION */
+  .problem{padding:100px 0;background:#fff;border-top:1px solid var(--border3);}
+  .problem-top{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center;margin-bottom:64px;}
+  .problem-top-text .section-label{display:block;margin-bottom:16px;}
+  .problem-top-text h2{font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;letter-spacing:-1.5px;margin-bottom:18px;line-height:1.1;}
+  .problem-top-text h2 em{font-style:italic;color:var(--accent);}
+  .problem-top-text p{font-size:16px;color:var(--text-muted);line-height:1.75;max-width:440px;}
+  .problem-video-wrap{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);border:1.5px solid var(--border3);background:#0d0d0d;aspect-ratio:16/9;}
+  .problem-video-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
 
-      .pain-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-      .pain-card {
-        background: var(--surface);
-        border: 1.5px solid var(--border);
-        border-radius: 16px;
-        padding: 28px;
-        transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-      }
-      .pain-card:hover {
-        border-color: var(--border-h);
-        transform: translateY(-3px);
-        box-shadow: 0 12px 36px rgba(108, 99, 255, 0.1);
-      }
-      .pain-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 14px;
-        overflow: hidden;
-        margin-bottom: 18px;
-        border: 2px solid var(--border);
-      }
-      .pain-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .pain-title {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 8px;
-      }
-      .pain-desc {
-        font-size: 15px;
-        color: var(--muted);
-        line-height: 1.75;
-      }
-      .pain-cost {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin-top: 14px;
-        background: rgba(108, 99, 255, 0.08);
-        border: 1px solid rgba(108, 99, 255, 0.2);
-        border-radius: 100px;
-        padding: 4px 12px;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--accent);
-      }
+  .pain-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .pain-card{background:var(--bg2);border:1.5px solid var(--border3);border-radius:18px;padding:32px 28px;transition:all .3s;position:relative;overflow:hidden;}
+  .pain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#fecdd3,var(--red));opacity:0;transition:opacity .3s;}
+  .pain-card:hover::before{opacity:1;}
+  .pain-card:hover{border-color:#fecdd3;box-shadow:0 8px 32px rgba(225,29,72,0.08);transform:translateY(-4px);}
+  .pain-icon{width:52px;height:52px;background:rgba(225,29,72,0.08);border:1.5px solid rgba(225,29,72,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px;}
+  .pain-card h3{font-size:17px;font-weight:600;margin-bottom:10px;color:var(--text);}
+  .pain-card p{font-size:14px;color:var(--text-muted);line-height:1.65;}
+  .pain-stat{display:inline-block;margin-top:18px;font-size:12px;font-weight:700;color:var(--red);background:rgba(225,29,72,0.08);border:1px solid rgba(225,29,72,0.2);padding:4px 12px;border-radius:999px;}
 
-      /* SPECIALTIES */
-      .spec-section {
-        padding: 96px 0;
-        background: var(--surface);
-      }
-      .spec-header {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 56px 44px;
-      }
-      .spec-tabs-wrap {
-        border-bottom: 2px solid var(--border);
-        overflow-x: auto;
-        scrollbar-width: none;
-      }
-      .spec-tabs-wrap::-webkit-scrollbar {
-        display: none;
-      }
-      .spec-tabs {
-        display: flex;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 56px;
-      }
-      .spec-tab {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 20px 32px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--muted);
-        background: transparent;
-        border: none;
-        border-bottom: 3px solid transparent;
-        margin-bottom: -2px;
-        cursor: pointer;
-        white-space: nowrap;
-        transition: color 0.2s, border-color 0.2s, background 0.2s;
-        text-decoration: none;
-      }
-      .spec-tab:hover {
-        color: var(--accent);
-        background: rgba(108, 99, 255, 0.04);
-      }
-      .spec-tab.active {
-        color: var(--accent);
-        border-bottom-color: var(--accent);
-      }
-      .spec-tab-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        overflow: hidden;
-        border: 1.5px solid var(--border);
-        flex-shrink: 0;
-        transition: border-color 0.2s, box-shadow 0.2s;
-      }
-      .spec-tab-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .spec-tab.active .spec-tab-icon,
-      .spec-tab:hover .spec-tab-icon {
-        border-color: rgba(108, 99, 255, 0.4);
-        box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.18);
-      }
+  /* SOLUTION SECTION */
+  .solution{padding:100px 0;background:linear-gradient(170deg,#1a0a2e 0%,#2d1060 100%);position:relative;overflow:hidden;}
+  .solution::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,0.1) 0%,transparent 70%);top:50%;right:-100px;transform:translateY(-50%);pointer-events:none;}
+  .solution-header{text-align:center;margin-bottom:64px;}
+  .solution-header .section-label{background:rgba(124,58,237,0.25);border-color:rgba(167,139,250,0.3);color:#c4b5fd;}
+  .solution-header h2{font-family:var(--serif);font-size:clamp(28px,4vw,52px);font-weight:400;letter-spacing:-1.5px;color:#fff;margin-bottom:16px;}
+  .solution-header h2 em{font-style:italic;color:#c4b5fd;}
+  .solution-header p{font-size:16px;color:rgba(255,255,255,0.6);max-width:520px;margin:0 auto;line-height:1.75;}
 
-      .spec-panel {
-        display: none;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 48px 56px 0;
-      }
-      .spec-panel.active {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
-        align-items: start;
-      }
-      .spec-panel-left h3 {
-        font-family: "Instrument Serif", serif;
-        font-size: clamp(24px, 3vw, 36px);
-        font-weight: 400;
-        color: var(--text);
-        margin-bottom: 14px;
-        line-height: 1.2;
-      }
-      .spec-panel-left h3 em {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .spec-panel-left p {
-        font-size: 17px;
-        color: var(--muted);
-        line-height: 1.8;
-        margin-bottom: 28px;
-      }
-      .spec-pain-list {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 11px;
-        margin-bottom: 30px;
-      }
-      .spec-pain-list li {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        font-size: 16px;
-        color: var(--muted);
-        line-height: 1.65;
-      }
-      .spec-bullet {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background: rgba(108, 99, 255, 0.1);
-        border: 1.5px solid rgba(108, 99, 255, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 15px;
-        font-weight: 800;
-        color: var(--accent);
-        flex-shrink: 0;
-        margin-top: 1px;
-      }
-      .spec-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--accent);
-        color: #fff;
-        font-size: 14.5px;
-        font-weight: 700;
-        padding: 13px 26px;
-        border-radius: 100px;
-        text-decoration: none;
-        transition: all 0.2s;
-      }
-      .spec-cta:hover {
-        background: var(--accent-dk);
-        transform: translateY(-1px);
-        box-shadow: 0 8px 24px rgba(108, 99, 255, 0.28);
-      }
-      .spec-cta svg {
-        width: 15px;
-        height: 15px;
-        transition: transform 0.2s;
-      }
-      .spec-cta:hover svg {
-        transform: translateX(3px);
-      }
+  .solution-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .sol-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:32px 26px;transition:all .3s;}
+  .sol-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(167,139,250,0.3);transform:translateY(-4px);}
+  .sol-icon{width:52px;height:52px;background:rgba(124,58,237,0.3);border:1px solid rgba(167,139,250,0.3);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;}
+  .sol-card h3{font-size:17px;font-weight:600;color:#fff;margin-bottom:10px;}
+  .sol-card p{font-size:13.5px;color:rgba(255,255,255,0.6);line-height:1.65;}
 
-      .spec-sols {
-        background: #fff;
-        border: 1.5px solid var(--border);
-        border-radius: 18px;
-        padding: 26px;
-        box-shadow: 0 4px 20px rgba(108, 99, 255, 0.06);
-      }
-      .spec-sols-heading {
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 18px;
-      }
-      .sol-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 14px;
-        padding: 14px 0;
-        border-bottom: 1px solid var(--border);
-      }
-      .sol-item:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-      .sol-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 11px;
-        background: var(--accent-lt);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 19px;
-        flex-shrink: 0;
-      }
-      .sol-title {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 3px;
-      }
-      .sol-desc {
-        font-size: 16px;
-        color: var(--muted);
-        line-height: 1.65;
-      }
-      .hipaa-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        background: var(--green-bg);
-        border: 1px solid var(--green-bdr);
-        border-radius: 100px;
-        padding: 3px 9px;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--green);
-        margin-top: 7px;
-      }
+  /* SPECIALTIES */
+  .specialties{padding:100px 0;background:var(--bg2);border-top:1px solid var(--border3);}
+  .spec-header{text-align:center;margin-bottom:48px;}
+  .spec-header h2{font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;letter-spacing:-1.5px;margin-bottom:14px;}
+  .spec-header h2 em{font-style:italic;color:var(--accent);}
+  .spec-header p{font-size:16px;color:var(--text-muted);max-width:480px;margin:0 auto;}
+  .spec-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;}
+  .spec-tab{display:flex;align-items:center;gap:9px;padding:11px 22px;border:1.5px solid var(--border3);border-radius:12px;background:#fff;color:var(--text-muted);font-family:var(--sans);font-size:14px;font-weight:400;cursor:pointer;transition:all .25s;box-shadow:var(--shadow-sm);}
+  .spec-tab:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim);}
+  .spec-tab.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim2);font-weight:600;box-shadow:0 4px 16px var(--accent-glow);}
+  .spec-content{display:none;animation:fadeUp .4s ease;}
+  .spec-content.active{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .spec-problems h3{font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.2;margin-bottom:24px;letter-spacing:-.5px;}
+  .spec-problems h3 em{font-style:italic;color:var(--accent);}
+  .spec-problem-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
+  .spec-problem-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text-muted);padding:13px 16px;background:#fff;border:1px solid var(--border3);border-radius:10px;line-height:1.5;}
+  .spec-problem-list li::before{content:'▸';color:var(--accent);flex-shrink:0;font-weight:700;}
+  .spec-automations{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .auto-card{background:#fff;border:1.5px solid var(--border3);border-radius:14px;padding:22px;transition:all .25s;box-shadow:var(--shadow-sm);}
+  .auto-card:hover{border-color:var(--accent);box-shadow:var(--shadow-md);}
+  .auto-card .auto-icon{font-size:24px;margin-bottom:10px;}
+  .auto-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text);}
+  .auto-card p{font-size:13px;color:var(--text-muted);line-height:1.5;}
+  .auto-card .hipaa{margin-top:10px;font-size:11px;color:var(--accent);font-weight:700;}
 
-      /* REVIEWS */
-      .reviews-section {
-        padding: 96px 0;
-        background: #fff;
-        overflow: hidden;
-      }
-      .reviews-header {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 56px 44px;
-      }
-      .g-rating-row {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-top: 18px;
-      }
-      .g-badge {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        background: var(--surface);
-        border: 1.5px solid var(--border);
-        border-radius: 12px;
-        padding: 12px 20px;
-      }
-      .g-icon {
-        font-size: 18px;
-        font-weight: 900;
-        font-style: italic;
-        background: linear-gradient(135deg, #4285f4, #34a853, #fbbc04, #ea4335);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        flex-shrink: 0;
-      }
-      .g-score {
-        font-size: 26px;
-        font-weight: 800;
-        color: var(--text);
-      }
-      .g-stars {
-        color: #f59e0b;
-        font-size: 16px;
-        letter-spacing: 2px;
-      }
-      .g-count {
-        font-size: 15.5px;
-        color: var(--muted);
-      }
+  /* STATS */
+  .stats{padding:0;background:var(--accent);position:relative;overflow:hidden;}
+  .stats::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+  .stats-inner{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat-item{padding:60px 40px;border-right:1px solid rgba(255,255,255,0.15);text-align:center;}
+  .stat-item:last-child{border-right:none;}
+  .stat-num{font-family:var(--serif);font-size:60px;color:#fff;line-height:1;letter-spacing:-2px;font-weight:400;}
+  .stat-label{font-size:14px;color:rgba(255,255,255,0.7);margin-top:12px;line-height:1.5;}
 
-      .reviews-track-wrap {
-        position: relative;
-      }
-      .reviews-track-wrap::before,
-      .reviews-track-wrap::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 120px;
-        z-index: 2;
-        pointer-events: none;
-      }
-      .reviews-track-wrap::before {
-        left: 0;
-        background: linear-gradient(to right, #fff, transparent);
-      }
-      .reviews-track-wrap::after {
-        right: 0;
-        background: linear-gradient(to left, #fff, transparent);
-      }
-      .reviews-track {
-        display: flex;
-        gap: 20px;
-        animation: slide 42s linear infinite;
-        width: max-content;
-        padding: 8px 0;
-      }
-      .reviews-track:hover {
-        animation-play-state: paused;
-      }
-      @keyframes slide {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
+  /* HOW IT WORKS */
+  .process{padding:100px 0;background:#fff;border-top:1px solid var(--border3);}
+  .process-header{text-align:center;margin-bottom:72px;}
+  .process-header h2{font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;letter-spacing:-1.5px;margin-bottom:14px;}
+  .process-header h2 em{font-style:italic;color:var(--accent);}
+  .process-header p{font-size:16px;color:var(--text-muted);max-width:480px;margin:0 auto;line-height:1.7;}
+  .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .process-steps::before{content:'';position:absolute;top:40px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent);}
+  .step{padding:0 28px;text-align:center;position:relative;}
+  .step-num{width:80px;height:80px;background:#fff;border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:28px;color:var(--accent);margin:0 auto 24px;position:relative;z-index:1;font-weight:400;box-shadow:0 0 0 6px rgba(124,58,237,0.06);}
+  .step h3{font-size:17px;font-weight:600;margin-bottom:10px;color:var(--text);}
+  .step p{font-size:14px;color:var(--text-muted);line-height:1.65;}
 
-      .rev-card {
-        background: #fff;
-        border: 1.5px solid var(--border);
-        border-radius: 16px;
-        padding: 24px;
-        width: 310px;
-        flex-shrink: 0;
-        transition: border-color 0.3s, box-shadow 0.3s;
-      }
-      .rev-card:hover {
-        border-color: var(--border-h);
-        box-shadow: 0 8px 32px rgba(108, 99, 255, 0.1);
-      }
-      .rev-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 12px;
-      }
-      .rev-avatar {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 15px;
-        font-weight: 700;
-        color: #fff;
-        flex-shrink: 0;
-      }
-      .rev-name {
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--text);
-      }
-      .rev-spec {
-        font-size: 15px;
-        color: var(--muted);
-      }
-      .rev-stars {
-        color: #f59e0b;
-        font-size: 14.5px;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-      }
-      .rev-text {
-        font-size: 16px;
-        color: var(--muted);
-        line-height: 1.75;
-        font-style: italic;
-      }
-      .rev-verified {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        margin-top: 12px;
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--green);
-      }
-      .rev-verified svg {
-        width: 12px;
-        height: 12px;
-      }
+  /* CASE STUDIES / RESULTS */
+  .results{padding:100px 0;background:var(--bg2);border-top:1px solid var(--border3);}
+  .results-header{text-align:center;margin-bottom:16px;}
+  .results-header h2{font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;letter-spacing:-1.5px;margin-bottom:14px;}
+  .results-header h2 em{font-style:italic;color:var(--accent);}
+  .results-header p{font-size:16px;color:var(--text-muted);max-width:500px;margin:0 auto 48px;}
 
-      /* RESULTS */
-      .results-section {
-        padding: 80px 56px;
-        background: var(--accent);
-      }
-      .results-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .results-top {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        margin-bottom: 44px;
-        gap: 24px;
-      }
-      .results-headline {
-        font-family: "Instrument Serif", serif;
-        font-size: clamp(26px, 3.5vw, 42px);
-        font-weight: 400;
-        color: #fff;
-        line-height: 1.2;
-      }
-      .results-headline em {
-        font-style: italic;
-        opacity: 0.8;
-      }
-      .results-sub {
-        font-size: 14.5px;
-        color: rgba(255, 255, 255, 0.7);
-        max-width: 320px;
-        line-height: 1.65;
-      }
-      .results-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 18px;
-      }
-      .res-stat {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 16px;
-        padding: 26px 20px;
-        text-align: center;
-        transition: background 0.2s, transform 0.2s;
-      }
-      .res-stat:hover {
-        background: rgba(255, 255, 255, 0.16);
-        transform: translateY(-2px);
-      }
-      .res-num {
-        font-family: "Instrument Serif", serif;
-        font-size: 46px;
-        font-weight: 400;
-        color: #fff;
-        line-height: 1;
-        margin-bottom: 8px;
-      }
-      .res-num em {
-        font-style: italic;
-      }
-      .res-label {
-        font-size: 14.5px;
-        color: rgba(255, 255, 255, 0.75);
-        line-height: 1.5;
-        font-weight: 500;
-      }
+  /* RATING ROW */
+  .rating-row{display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:56px;flex-wrap:wrap;}
+  .rating-badge{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--border3);border-radius:12px;padding:10px 22px;font-size:14px;font-weight:500;box-shadow:var(--shadow-sm);}
+  .stars{color:#f59e0b;letter-spacing:2px;}
+  .rating-stat{text-align:center;}
+  .rating-stat-num{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--accent);letter-spacing:-1px;}
+  .rating-stat-label{font-size:12px;color:var(--text-muted);}
 
-      /* HOW */
-      .how-section {
-        padding: 96px 56px;
-        background: var(--surface);
-      }
-      .steps-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        margin-top: 52px;
-        position: relative;
-      }
-      .steps-grid::before {
-        content: "";
-        position: absolute;
-        top: 32px;
-        left: calc(12.5% + 16px);
-        right: calc(12.5% + 16px);
-        height: 1.5px;
-        background: linear-gradient(
-          90deg,
-          var(--border-h),
-          rgba(108, 99, 255, 0.2),
-          var(--border-h)
-        );
-      }
-      .step-card {
-        text-align: center;
-        padding: 0 12px;
-      }
-      .step-num-wrap {
-        position: relative;
-        z-index: 1;
-        margin-bottom: 22px;
-        display: flex;
-        justify-content: center;
-      }
-      .step-num {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-        background: #fff;
-        border: 2px solid var(--accent);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        font-weight: 800;
-        color: var(--accent);
-        box-shadow: 0 4px 16px rgba(108, 99, 255, 0.15);
-      }
-      .step-name {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 9px;
-      }
-      .step-desc {
-        font-size: 15px;
-        color: var(--muted);
-        line-height: 1.65;
-      }
+  /* FEATURED CASE STUDY */
+  .featured-case{background:linear-gradient(160deg,#1a0a2e 0%,#2d1060 100%);border-radius:24px;padding:56px 52px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:28px;position:relative;overflow:hidden;}
+  .featured-case::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,0.12) 0%,transparent 70%);top:50%;right:-60px;transform:translateY(-50%);pointer-events:none;}
+  .featured-case-left{}
+  .case-specialty{display:inline-flex;align-items:center;gap:6px;background:rgba(124,58,237,0.25);border:1px solid rgba(167,139,250,0.3);border-radius:999px;padding:5px 14px;font-size:11px;font-weight:700;color:#c4b5fd;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
+  .featured-case h3{font-family:var(--serif);font-size:clamp(24px,3vw,38px);font-weight:400;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;}
+  .featured-case h3 em{font-style:italic;color:#c4b5fd;}
+  .featured-case p{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;margin-bottom:28px;}
+  .case-quote{font-size:15px;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.65;border-left:3px solid #7c3aed;padding-left:18px;margin-bottom:20px;}
+  .case-attr{font-size:13px;color:rgba(255,255,255,0.45);}
 
-      /* FEATURES */
-      .features-section {
-        padding: 96px 56px;
-        background: #fff;
-      }
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-      }
-      .feat-card {
-        background: var(--surface);
-        border: 1.5px solid var(--border);
-        border-radius: 16px;
-        padding: 28px;
-        transition: all 0.3s;
-      }
-      .feat-card:hover {
-        border-color: var(--border-h);
-        transform: translateY(-3px);
-        box-shadow: 0 14px 40px rgba(108, 99, 255, 0.1);
-      }
-      .feat-card.hipaa {
-        border-color: var(--green-bdr);
-        background: var(--green-bg);
-      }
-      .feat-icon {
-        width: 54px;
-        height: 54px;
-        border-radius: 13px;
-        overflow: hidden;
-        border: 1.5px solid rgba(108, 99, 255, 0.2);
-        margin-bottom: 16px;
-      }
-      .feat-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .feat-card.hipaa .feat-icon {
-        border-color: var(--green-bdr);
-      }
-      .feat-name {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 9px;
-      }
-      .feat-card.hipaa .feat-name {
-        color: var(--green);
-      }
-      .feat-desc {
-        font-size: 15px;
-        color: var(--muted);
-        line-height: 1.75;
-      }
+  .featured-case-right{position:relative;z-index:1;}
+  .metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .metric-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:24px 20px;text-align:center;}
+  .metric-before{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+  .metric-arrow{font-size:18px;color:#c4b5fd;margin:6px 0;}
+  .metric-after{font-family:var(--serif);font-size:36px;font-weight:400;color:#fff;letter-spacing:-1px;line-height:1;}
+  .metric-label{font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;}
+  .metric-change{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:#34d399;background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.25);padding:3px 10px;border-radius:999px;}
 
-      /* CTA */
-      .cta-section {
-        padding: 100px 56px;
-        background: linear-gradient(160deg, #fff 0%, #f0eeff 100%);
-        position: relative;
-        overflow: hidden;
-      }
-      .cta-section::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 800px;
-        height: 500px;
-        background: radial-gradient(
-          ellipse,
-          rgba(108, 99, 255, 0.1) 0%,
-          transparent 65%
-        );
-        pointer-events: none;
-      }
-      .cta-inner {
-        max-width: 780px;
-        margin: 0 auto;
-        text-align: center;
-        position: relative;
-        z-index: 1;
-      }
-      .cta-inner .section-label {
-        justify-content: center;
-        margin-bottom: 18px;
-      }
-      .cta-inner h2 {
-        font-family: "Instrument Serif", serif;
-        font-size: clamp(32px, 4.5vw, 56px);
-        font-weight: 400;
-        color: var(--text);
-        margin-bottom: 18px;
-        line-height: 1.1;
-      }
-      .cta-inner h2 em {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .cta-inner p {
-        font-size: 17px;
-        color: var(--muted);
-        line-height: 1.75;
-        margin-bottom: 40px;
-        max-width: 540px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .cta-btns {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin-bottom: 28px;
-      }
-      .cta-trust {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 18px;
-        flex-wrap: wrap;
-      }
-      .ct-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--muted);
-      }
-      .ct-item svg {
-        width: 14px;
-        height: 14px;
-        color: var(--green);
-      }
+  /* CASE CARDS GRID */
+  .cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .case-card{background:#fff;border:1.5px solid var(--border3);border-radius:20px;padding:32px 28px;transition:all .3s;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;}
+  .case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-light),var(--accent));opacity:0;transition:opacity .3s;}
+  .case-card:hover::before{opacity:1;}
+  .case-card:hover{border-color:var(--border);box-shadow:var(--shadow-md);transform:translateY(-5px);}
+  .case-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-dim);border:1px solid var(--border);padding:4px 12px;border-radius:999px;margin-bottom:18px;text-transform:uppercase;letter-spacing:.8px;}
+  .case-result{font-family:var(--serif);font-size:42px;font-weight:400;color:var(--accent);letter-spacing:-1.5px;line-height:1;margin-bottom:4px;}
+  .case-result-label{font-size:13px;font-weight:600;color:var(--text);margin-bottom:14px;}
+  .case-divider{height:1px;background:var(--border3);margin:16px 0;}
+  .case-quote-sm{font-size:13.5px;color:var(--text-muted);line-height:1.65;font-style:italic;margin-bottom:16px;}
+  .case-person{display:flex;align-items:center;gap:10px;}
+  .case-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--accent-dim2),var(--bg3));border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--accent);flex-shrink:0;}
+  .case-name{font-size:13px;font-weight:600;color:var(--text);}
+  .case-role{font-size:11px;color:var(--text-muted);}
+  .case-stars{color:#f59e0b;font-size:12px;margin-top:2px;}
 
-      /* FOOTER */
-      footer {
-        background: var(--text);
-        padding: 36px 56px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-      .f-logo {
-        font-family: "Instrument Serif", serif;
-        font-size: 24px;
-      }
-      .f-logo .logo-plain {
-        color: #fff;
-      }
-      .f-logo .logo-em {
-        color: #a89fff;
-        font-style: italic;
-      }
-      .f-links {
-        display: flex;
-        gap: 28px;
-        flex-wrap: wrap;
-      }
-      .f-links a {
-        font-size: 15px;
-        color: rgba(255, 255, 255, 0.5);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .f-links a:hover {
-        color: #fff;
-      }
-      footer p {
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.32);
-      }
+  /* MID-SECTION CTA */
+  .mid-cta{background:var(--accent-dim);border:1.5px solid var(--border);border-radius:20px;padding:36px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:28px;flex-wrap:wrap;}
+  .mid-cta-text h3{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--text);margin-bottom:6px;letter-spacing:-.5px;}
+  .mid-cta-text p{font-size:14px;color:var(--text-muted);}
+  .btn-mid-cta{background:var(--accent);color:#fff;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:all .25s;box-shadow:0 6px 24px var(--accent-glow);white-space:nowrap;}
+  .btn-mid-cta:hover{background:var(--accent2);transform:translateY(-2px);}
 
-      @keyframes up {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+  /* TOOLS */
+  .tools{padding:100px 0;background:#fff;border-top:1px solid var(--border3);}
+  .tools-header{text-align:center;margin-bottom:56px;}
+  .tools-header h2{font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;letter-spacing:-1.5px;margin-bottom:14px;}
+  .tools-header h2 em{font-style:italic;color:var(--accent);}
+  .tools-header p{font-size:16px;color:var(--text-muted);max-width:480px;margin:0 auto;line-height:1.7;}
+  .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .tool-card{background:var(--bg2);border:1.5px solid var(--border3);border-radius:20px;padding:36px 32px;transition:all .3s;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;}
+  .tool-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-light),var(--accent));opacity:0;transition:opacity .3s;}
+  .tool-card:hover::after{opacity:1;}
+  .tool-card:hover{border-color:var(--border);box-shadow:var(--shadow-md);transform:translateY(-4px);}
+  .tool-icon{width:58px;height:58px;background:linear-gradient(135deg,var(--accent-dim2),var(--bg3));border:1.5px solid var(--border);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px;box-shadow:0 4px 12px var(--accent-glow);}
+  .tool-card h3{font-size:18px;font-weight:600;margin-bottom:10px;color:var(--text);}
+  .tool-card p{font-size:14px;color:var(--text-muted);line-height:1.75;}
 
-      @media (max-width: 1024px) {
-        nav {
-          padding: 0 24px;
-        }
-        .nav-links {
-          display: none;
-        }
-        .nav-cta {
-          display: none;
-        }
-        .hamburger {
-          display: flex;
-        }
-        .hero-section {
-          padding: 100px 24px 64px;
-        }
-        .hero-inner {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
-        .pain-grid,
-        .features-grid,
-        .steps-grid {
-          grid-template-columns: 1fr;
-        }
-        .pain-top-row {
-          grid-template-columns: 1fr;
-        }
-        .steps-grid::before {
-          display: none;
-        }
-        .results-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .results-top {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .spec-panel.active {
-          grid-template-columns: 1fr;
-        }
-        .proof-strip {
-          padding: 16px 24px;
-          gap: 18px;
-        }
-        .pain-section,
-        .features-section,
-        .how-section,
-        .cta-section,
-        .results-section {
-          padding: 64px 24px;
-        }
-        .reviews-section {
-          padding: 64px 0;
-        }
-        .reviews-header {
-          padding: 0 24px 40px;
-        }
-        .spec-section {
-          padding: 64px 0;
-        }
-        .spec-header {
-          padding: 0 24px 40px;
-        }
-        .spec-tabs {
-          padding: 0 24px;
-        }
-        .spec-panel {
-          padding: 40px 24px 0;
-        }
-        footer {
-          padding: 32px 24px;
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .cta-section {
-          padding: 64px 24px;
-        }
-      }
-      @media (max-width: 600px) {
-        .results-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .form-row {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: 380px) {
-        .results-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <a class="nav-logo" href="/"
-        ><span class="logo-plain">Path</span
-        ><span class="logo-em">eown</span></a
-      >
-      <div class="nav-links">
-        <a href="#how">How It Works</a>
-        <a href="/industries">Specialties</a>
-        <a href="/pricing-tiers">Pricing</a>
-        <a href="/results">Results</a>
-      </div>
-      <a class="nav-cta" href="#demo">Book a Free Demo →</a>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
+  /* GUARANTEE */
+  .guarantee{padding:80px 0;background:var(--bg2);border-top:1px solid var(--border3);}
+  .guarantee-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+  .g-card{background:#fff;border:1.5px solid var(--border3);border-radius:18px;padding:32px 28px;text-align:center;box-shadow:var(--shadow-sm);}
+  .g-badge{width:60px;height:60px;background:var(--accent-dim);border:1.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px;}
+  .g-card h3{font-size:17px;font-weight:600;color:var(--text);margin-bottom:10px;}
+  .g-card p{font-size:14px;color:var(--text-muted);line-height:1.6;}
 
-    <div class="mobile-menu" id="mobile-menu">
-      <a href="#how" onclick="closeMobileMenu()">How It Works</a>
-      <a href="/industries" onclick="closeMobileMenu()">Specialties</a>
-      <a href="/pricing-tiers" onclick="closeMobileMenu()">Pricing</a>
-      <a href="/results" onclick="closeMobileMenu()">Results</a>
-      <a href="#demo" class="mob-cta" onclick="closeMobileMenu()"
-        >Book a Free Demo →</a
-      >
-    </div>
+  /* FAQ */
+  .faq{padding:100px 0;background:#fff;border-top:1px solid var(--border3);}
+  .faq-header{text-align:center;margin-bottom:56px;}
+  .faq-header h2{font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;letter-spacing:-1.5px;margin-bottom:14px;}
+  .faq-header h2 em{font-style:italic;color:var(--accent);}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:960px;margin:0 auto;}
+  .faq-item{background:var(--bg2);border:1.5px solid var(--border3);border-radius:16px;overflow:hidden;cursor:pointer;transition:border-color .2s;}
+  .faq-item:hover{border-color:var(--border);}
+  .faq-item.open{border-color:var(--accent);}
+  .faq-q{padding:18px 22px;font-size:14px;font-weight:600;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none;}
+  .faq-icon{flex-shrink:0;color:var(--accent);transition:transform .25s;}
+  .faq-item.open .faq-icon{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;font-size:13.5px;color:var(--text-muted);line-height:1.7;padding:0 22px;}
+  .faq-item.open .faq-a{max-height:220px;padding:0 22px 20px;}
 
-    <!-- HERO -->
-    <section id="demo" class="hero-section">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-tag">
-            <span class="tag-dot"></span
-            ><span
-              >100% HIPAA-Compliant AI Built Exclusively for Healthcare</span
-            >
-          </div>
-          <h1>
-            Your practice is losing <br> revenue<br />to admin overload.<br /><em
-              >We fix that.</em
-            >
-          </h1>
-          <p class="hero-sub">
-            Patheown builds
-            <b>AI systems purpose-built for healthcare practices</b> automating
-            patient intake, scheduling, clinical notes, follow-ups, and billing
-            so your providers spend their time on patients, not paperwork.
-          </p>
-          <div class="hero-ctas">
-            <a class="btn-hero" href="#demo"
-              >Get My Free Strategy Demo
-              <svg
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M3 8h10M9 4l4 4-4 4" /></svg
-            ></a>
-            <a class="btn-sec" href="#how">See how it works →</a>
-          </div>
-          <div class="hero-trust">
-            <div class="trust-pill">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg
-              >HIPAA Compliant
-            </div>
-            <div class="t-sep"></div>
-            <div class="trust-pill">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >BAA Included
-            </div>
-            <div class="t-sep"></div>
-            <div class="trust-pill">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="11" width="18" height="11" rx="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg
-              >End-to-End Encrypted
-            </div>
-          </div>
+  /* DIAMOND PACKAGE / FINAL CTA */
+  .diamond-section{padding:100px 0;background:linear-gradient(170deg,#1a0a2e 0%,#2d1060 100%);position:relative;overflow:hidden;}
+  .diamond-section::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,0.1) 0%,transparent 70%);top:50%;right:-80px;transform:translateY(-50%);pointer-events:none;}
+  .diamond-inner{display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center;position:relative;z-index:1;}
+  .diamond-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.25);border:1.5px solid rgba(167,139,250,0.3);border-radius:999px;padding:7px 16px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#c4b5fd;margin-bottom:24px;}
+  .diamond-left h2{font-family:var(--serif);font-size:clamp(30px,4vw,52px);font-weight:400;color:#fff;letter-spacing:-1.5px;line-height:1.1;margin-bottom:18px;}
+  .diamond-left h2 em{font-style:italic;color:#c4b5fd;}
+  .diamond-left .diamond-sub{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:480px;margin-bottom:36px;}
+  .diamond-features{display:flex;flex-direction:column;gap:14px;}
+  .diamond-feature{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;transition:all .25s;}
+  .diamond-feature:hover{background:rgba(255,255,255,0.1);border-color:rgba(167,139,250,0.3);transform:translateX(4px);}
+  .diamond-feature-icon{width:38px;height:38px;background:rgba(124,58,237,0.35);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+  .diamond-feature-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:2px;}
+  .diamond-feature-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.5;}
+
+  /* diamond form card */
+  .diamond-card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.35);position:relative;z-index:1;}
+  .diamond-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c4b5fd,#7c3aed,#a78bfa,#c4b5fd);background-size:200% auto;animation:shimmer 3s linear infinite;}
+  .diamond-card-header{padding:32px 36px 24px;border-bottom:1px solid var(--border3);text-align:center;}
+  .diamond-gem{font-size:36px;display:block;margin-bottom:10px;filter:drop-shadow(0 4px 14px rgba(167,139,250,0.5));}
+  .diamond-card-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--text);margin-bottom:6px;}
+  .diamond-card-title em{font-style:italic;color:var(--accent);}
+  .diamond-card-sub{font-size:13px;color:var(--text-muted);line-height:1.5;}
+  .diamond-card-body{padding:28px 36px 36px;}
+  .diamond-includes{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px;}
+  .diamond-includes li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-muted);}
+  .diamond-check{width:20px;height:20px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .diamond-check svg{color:#fff;}
+  .btn-diamond{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:16px;font-family:var(--sans);font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;box-shadow:0 6px 24px var(--accent-glow);display:block;text-align:center;text-decoration:none;}
+  .btn-diamond:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 10px 36px var(--accent-glow);}
+  .diamond-guarantee{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;font-size:12px;color:var(--text-dim);}
+  .diamond-guarantee svg{color:var(--accent);}
+
+  /* URGENCY CTA BAR */
+  .urgency-bar{background:var(--bg2);border-top:1px solid var(--border3);border-bottom:1px solid var(--border3);padding:20px 0;text-align:center;position:relative;z-index:1;}
+  .urgency-inner{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
+  .urgency-text{font-size:15px;color:var(--text);font-weight:500;}
+  .urgency-text strong{color:var(--accent);}
+  .btn-urgency{background:var(--accent);color:#fff;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:all .25s;box-shadow:0 4px 14px var(--accent-glow);}
+  .btn-urgency:hover{background:var(--accent2);transform:translateY(-1px);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border3);padding:40px 64px;display:flex;align-items:center;justify-content:space-between;background:var(--bg2);flex-wrap:wrap;gap:20px;position:relative;z-index:1;}
+  .footer-links{display:flex;gap:28px;list-style:none;}
+  .footer-links a{font-size:14px;color:var(--text-muted);text-decoration:none;transition:color .2s;}
+  .footer-links a:hover{color:var(--accent);}
+  .footer-copy{font-size:13px;color:var(--text-dim);}
+
+  /* RESPONSIVE */
+  @media(max-width:1024px){
+    nav{padding:16px 24px;}
+    .nav-links{display:none;}
+    .hero{padding:140px 24px 60px;}
+    .hero-inner{grid-template-columns:1fr;gap:40px;}
+    .trust-strip{max-width:100%;}
+    
+  .container{padding:0 24px;}
+    .problem-top{grid-template-columns:1fr;}
+    .pain-cards{grid-template-columns:1fr;}
+    .solution-grid{grid-template-columns:1fr;}
+    .spec-content.active{grid-template-columns:1fr;}
+    .spec-automations{grid-template-columns:1fr;}
+    .stats-inner{grid-template-columns:1fr 1fr;}
+    .featured-case{grid-template-columns:1fr;gap:36px;padding:36px 28px;}
+    .metrics-grid{grid-template-columns:1fr 1fr;}
+    .cases-grid{grid-template-columns:1fr;}
+    .mid-cta{flex-direction:column;text-align:center;padding:28px 24px;}
+    .rating-row{gap:20px;}
+    .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.15);}
+    .process-steps{grid-template-columns:1fr 1fr;gap:40px;}
+    .process-steps::before{display:none;}
+    .tools-grid{grid-template-columns:1fr;}
+    .guarantee-inner{grid-template-columns:1fr;}
+    .faq-grid{grid-template-columns:1fr;}
+    .diamond-inner{grid-template-columns:1fr;gap:40px;}
+    footer{padding:32px 24px;flex-direction:column;align-items:flex-start;}
+    .announce-bar{font-size:12px;padding:8px 16px;}
+    nav{top:50px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="16" rx="1"/><path d="M12 2v4M5 6V4M19 6V4"/><path d="M12 11v4M10 13h4"/></svg> Now serving 500+ healthcare practices across the US
+  <a href="#demo-hero">Book your FREE strategy demo today →</a>
+</div>
+
+<nav id="main-nav">
+  <a href="./index.html" class="nav-logo">
+    <span class="nav-logo-plain">Path</span><span class="nav-logo-italic">eown</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./services.html">Industries</a></li>
+    <li><a href="./diamond-plan.html" class="active" style="color:var(--accent);font-weight:600;">Diamond Package</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <div class="nav-btns">
+    <a href="https://crm.patheown.com/" class="btn-login">Log In</a>
+    <a href="./index.html#hero-form" class="btn-nav">Book FREE Demo →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-inner">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="badge"><span class="badge-dot"></span>100% HIPAA-Compliant AI for Healthcare</div>
+      <h1>Your practice is losing revenue to <em>admin overload.</em> We fix that.</h1>
+      <p class="hero-sub">Patheown builds AI systems purpose built for healthcare automating intake, scheduling, clinical notes, follow-ups, and billing. Plus a full marketing engine to flood your practice with the right patients.</p>
+      <div class="trust-strip">
+        <div class="trust-pill">
+          <div class="trust-pill-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><span class="trust-pill-label">HIPAA Compliant</span><br><span class="trust-pill-desc">Built to federal standards</span></div>
         </div>
-        <iframe
-          src="https://api.leadconnectorhq.com/widget/form/ZLa7GOYb1rmW3fYH4BNp"
-          style="width: 100%; height: 100%; border: none; border-radius: 25px"
-          id="inline-ZLa7GOYb1rmW3fYH4BNp"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="Booking & Qualifying - Design Accurate"
-          data-height="923"
-          data-layout-iframe-id="inline-ZLa7GOYb1rmW3fYH4BNp"
-          data-form-id="ZLa7GOYb1rmW3fYH4BNp"
-          title="Booking & Qualifying - Design Accurate"
-        >
-        </iframe>
-      </div>
-    </section>
-
-    <!-- PROOF STRIP -->
-    <div class="proof-strip">
-      <div class="ps-item">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="20 6 9 17 4 12" /></svg
-        >Trusted by 500+ Healthcare Practices
-      </div>
-      <div class="ps-sep"></div>
-      <div class="ps-item">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="20 6 9 17 4 12" /></svg
-        >Average 40% No-Show Reduction in 60 Days
-      </div>
-      <div class="ps-sep"></div>
-      <div class="ps-item">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="20 6 9 17 4 12" /></svg
-        >Live in Your Practice in Under 3 Weeks
-      </div>
-      <div class="ps-sep"></div>
-      <div class="ps-item">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="20 6 9 17 4 12" /></svg
-        >BAA Signed Before Day One
+        <div class="trust-pill">
+          <div class="trust-pill-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div><span class="trust-pill-label">BAA Included</span><br><span class="trust-pill-desc">Signed before day one</span></div>
+        </div>
+        <div class="trust-pill">
+          <div class="trust-pill-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div><span class="trust-pill-label">End-to-End Encrypted</span><br><span class="trust-pill-desc">PHI-safe data handling</span></div>
+        </div>
+        <div class="trust-pill">
+          <div class="trust-pill-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><span class="trust-pill-label">Live in Under 3 Weeks</span><br><span class="trust-pill-desc">We handle the full build</span></div>
+        </div>
       </div>
     </div>
 
-    <!-- PAIN -->
-    <section class="pain-section">
-      <div class="sw">
-        <div class="pain-top-row">
-          <div class="pain-top-left">
-            <div class="section-label">
-              <span class="sl-line"></span
-              ><span class="sl-text">The Problem</span>
-            </div>
-            <h2 class="section-headline">
-              Every day you don't automate,<br />your practice
-              <em>bleeds revenue.</em>
-            </h2>
-            <p class="section-sub">
-              Healthcare providers spend up to 40% of their time on admin that
-              should never require a human. That's time patients need and
-              revenue your practice loses silently every single day.
-            </p>
-          </div>
-          <div class="pain-top-right">
-            <div class="video-wrap">
-              <video
-                class="video-bg"
-                playsinline
-                controls
-                preload="metadata"
-                disablePictureInPicture
-                poster="./assets/thumbnail_vsl.png"
-              >
-                <source
-                  src="https://assets.cdn.filesafe.space/Qfm2kgJX09aNJ18iNPvo/media/69ebc939a087d00deddb118d.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+    <!-- RIGHT: FORM -->
+    <div class="hero-form-card" id="demo-hero">
+      <p class="hero-form-title">Book your <em>FREE</em> strategy demo</p>
+      <p class="hero-form-sub">30 minute call · No commitment · HIPAA safe from day one</p>
+      <div class="hero-form-divider"></div>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Dr. Jane"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+      </div>
+      <div class="form-group"><label>Practice Email</label><input type="email" placeholder="jane@mypractice.com"></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000"></div>
+      <div class="form-group">
+        <label>Specialty</label>
+        <select>
+          <option value="" disabled selected>Select your specialty</option>
+          <option>Dental</option><option>Med Spa</option><option>Home Health</option>
+          <option>Behavioral Health</option><option>Chiropractic</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>What are you interested in?</label>
+        <select>
+          <option value="" disabled selected>Select an option</option>
+          <option>AI Automation CRM</option>
+          <option>Diamond Package</option>
+          <option>Both AI Automation CRM &amp; Diamond Package</option>
+        </select>
+      </div>
+      <button class="btn-submit" onclick="handleHeroSubmit()">Get My FREE Strategy Demo →</button>
+      <p class="form-note">No credit card · No commitment · HIPAA compliant from day one</p>
+    </div>
 
-              <div class="play-btn">
-                <svg viewBox="0 0 24 24">
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
-              </div>
+  </div>
+</section>
 
-              <div class="video-label">
-                Watch — How Patheown Works for Your Practice
-              </div>
-            </div>
+<!-- SOCIAL PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-stat"><div class="proof-num">500+</div><div class="proof-label">Practices Served</div></div>
+    <div class="proof-div"></div>
+    <div class="proof-stat"><div class="proof-num">40%</div><div class="proof-label">Reduction in No-Shows</div></div>
+    <div class="proof-div"></div>
+    <div class="proof-stat"><div class="proof-num">2K+</div><div class="proof-label">Admin Hours Saved Per Year</div></div>
+    <div class="proof-div"></div>
+    <div class="proof-stat"><div class="proof-num">98%</div><div class="proof-label">Lead Capture Rate 24/7</div></div>
+    <div class="proof-div"></div>
+    <div class="proof-stat"><div class="proof-num">4.9★</div><div class="proof-label">Average Google Rating</div></div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem" id="how">
+  <div class="container">
+    <div class="problem-top reveal">
+      <div class="problem-top-text">
+        <span class="section-label">The Problem</span>
+        <h2>Every day you don't automate, your practice <em>bleeds revenue.</em></h2>
+        <p>Healthcare providers spend up to 40% of their time on admin that should never require a human. That's time patients need and revenue your practice loses silently every single day.</p>
+      </div>
+      <div class="problem-video-wrap">
+        <video controls preload="metadata" poster="https://patheown.vercel.app/assets/thumbnail_vsl.png">
+          <source src="https://assets.cdn.filesafe.space/Qfm2kgJX09aNJ18iNPvo/media/69ebc939a087d00deddb118d.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="pain-cards reveal">
+      <div class="pain-card">
+        <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="15" x2="15" y2="21"/><line x1="15" y1="15" x2="9" y2="21"/></svg></div>
+        <h3>No-Shows Draining Chair Time</h3>
+        <p>The average practice loses 18–23% of appointments to no-shows with no automated system to fill those gaps in real time.</p>
+        <span class="pain-stat">Up to $4,000/mo per provider</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="container">
+    <div class="solution-header reveal">
+      <div class="section-label">The Solution</div>
+      <h2>Two systems. One mission.<br><em>A practice that runs itself.</em></h2>
+      <p>Patheown delivers an AI automation system that eliminates admin and a Diamond marketing engine that fills your pipeline. Together, they turn a struggling practice into a self-running revenue machine.</p>
+    </div>
+    <div class="solution-grid reveal">
+      <div class="sol-card">
+        <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M9 11V7a3 3 0 0 1 6 0v4"/><line x1="12" y1="3" x2="12" y2="5"/></svg></div>
+        <h3>AI Automation CRM</h3>
+        <p>Scheduling, intake, follow-ups, notes, insurance auth, billing workflows fully automated so providers focus entirely on patients. HIPAA compliant, BAA-signed, EHR-integrated.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 3 18 3 22 9 12 22 2 9 6 3"/><polyline points="2 9 12 9 22 9"/><line x1="6" y1="3" x2="12" y2="22"/><line x1="18" y1="3" x2="12" y2="22"/></svg></div>
+        <h3>Diamond Marketing Package</h3>
+        <p>SEO, Google Ads, a custom conversion optimized landing page, and a data engineering pipeline working together to flood your practice with hyper targeted patients on autopilot.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+        <h3>Real-Time Intelligence</h3>
+        <p>One unified dashboard showing every patient, every lead, every marketing dollar. Know exactly what's working, what's not, and where every dollar of ROI is coming from.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="specialties" id="specialties">
+  <div class="container">
+    <div class="spec-header reveal">
+      <div class="section-label">Healthcare Specialties</div>
+      <h2>Built for your <em>specific</em> specialty.<br>Not generic. Not repurposed.</h2>
+      <p>Select your specialty and see exactly what Patheown automates for practices like yours.</p>
+    </div>
+    <div class="spec-tabs">
+      <button class="spec-tab active" onclick="switchTab('dental',this)"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 2 6 4 6 7c0 2 .5 3.5 1 5l1 7c.2 1 1 1.5 1.5 1.5S11 20 11.5 19l.5-2 .5 2c.5 1 1.2 1.5 1.5 1.5s1.3-.5 1.5-1.5l1-7c.5-1.5 1-3 1-5 0-3-3-5-6-5z"/></svg></span> Dental</button>
+      <button class="spec-tab" onclick="switchTab('medspa',this)"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></span> Med Spa</button>
+      <button class="spec-tab" onclick="switchTab('homehealth',this)"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span> Home Health</button>
+      <button class="spec-tab" onclick="switchTab('behavioral',this)"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-1.44-4.44 3 3 0 0 1 0-5.2 2.5 2.5 0 0 1 1.44-4.44A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 1.44-4.44 3 3 0 0 0 0-5.2 2.5 2.5 0 0 0-1.44-4.44A2.5 2.5 0 0 0 14.5 2z"/></svg></span> Behavioral Health</button>
+      <button class="spec-tab" onclick="switchTab('chiro',this)"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><rect x="9" y="4.5" width="6" height="3" rx="1.5"/><rect x="9" y="10" width="6" height="3" rx="1.5"/><rect x="9" y="15.5" width="6" height="3" rx="1.5"/><path d="M9 6H6M15 6h3M9 11.5H6M15 11.5h3M9 17H6M15 17h3"/></svg></span> Chiropractic</button>
+    </div>
+    <div class="spec-content active" id="tab-dental">
+      <div class="spec-problems">
+        <h3>Dental practices lose <em>thousands every month</em> to no-shows and missed calls.</h3>
+        <ul class="spec-problem-list">
+          <li>High no-show rates drain chair time and daily revenue</li>
+          <li>New patient inquiries missed after hours go to competitors</li>
+          <li>Recall patients lost with no automated follow-up system</li>
+          <li>Insurance verification and paperwork slow the whole practice</li>
+        </ul>
+        <a href="#demo-hero" class="btn-nav" style="display:inline-block;padding:14px 28px;font-size:14px;">Get My Dental Demo →</a>
+      </div>
+      <div class="spec-automations">
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h4>AI Appointment Automation</h4><p>Book, confirm, remind, and reschedule zero front desk time required.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.5"/><circle cx="15.5" cy="16" r="1.5"/><path d="M9 11V7a3 3 0 0 1 6 0v4"/><line x1="12" y1="3" x2="12" y2="5"/></svg></div><h4>24/7 New Patient Chatbot</h4><p>Captures and books every after hours inquiry before competitors respond.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg></div><h4>Patient Recall Campaigns</h4><p>Automated re-engagement for overdue patients recovering lost revenue.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h4>AI Medical Notes</h4><p>Complete daily clinical notes and paperwork on autopilot.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+      </div>
+    </div>
+    <div class="spec-content" id="tab-medspa">
+      <div class="spec-problems">
+        <h3>Med spas lose <em>high value bookings</em> every day to unanswered DMs.</h3>
+        <ul class="spec-problem-list">
+          <li>After hours DMs and inquiries lost to competitors overnight</li>
+          <li>No automated system to upsell packages and memberships</li>
+          <li>Consultation no-shows waste expensive injector and laser time</li>
+          <li>Reviews and before/after follow-ups are entirely manual</li>
+        </ul>
+        <a href="#demo-hero" class="btn-nav" style="display:inline-block;padding:14px 28px;font-size:14px;">Get My Med Spa Demo →</a>
+      </div>
+      <div class="spec-automations">
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10" opacity=".5"/><line x1="9" y1="14" x2="12" y2="14" opacity=".5"/></svg></div><h4>AI Booking & DM Automation</h4><p>Responds to every inquiry in seconds day, night, weekend.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 3 18 3 22 9 12 22 2 9 6 3"/><polyline points="2 9 12 9 22 9"/><line x1="6" y1="3" x2="12" y2="22"/><line x1="18" y1="3" x2="12" y2="22"/></svg></div><h4>Membership Upsell Sequences</h4><p>Automated campaigns to convert one-time clients into recurring members.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><h4>Post-Treatment Retention AI</h4><p>Follow-up sequences that bring clients back at exactly the right time.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h4>Review Generation Automation</h4><p>Automatically requests Google reviews after every successful treatment.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+      </div>
+    </div>
+    <div class="spec-content" id="tab-homehealth">
+      <div class="spec-problems">
+        <h3>Home health agencies lose <em>referrals</em> to agencies that respond faster.</h3>
+        <ul class="spec-problem-list">
+          <li>Slow referral intake loses cases to faster-responding agencies</li>
+          <li>Caregiver scheduling is manual, error-prone, and time-consuming</li>
+          <li>Family communication and care updates are inconsistent</li>
+          <li>Compliance documentation creates massive daily admin burden</li>
+        </ul>
+        <a href="#demo-hero" class="btn-nav" style="display:inline-block;padding:14px 28px;font-size:14px;">Get My Home Health Demo →</a>
+      </div>
+      <div class="spec-automations">
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4>Referral Intake Automation</h4><p>Respond to referrals in hours, not days win more cases automatically.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div><h4>Caregiver Scheduling AI</h4><p>Automated shift scheduling, conflicts resolved before they happen.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="5" r="2"/><circle cx="17" cy="7" r="2"/><path d="M5 22v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3" opacity=".6"/><path d="M13 22v-2a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v2" opacity=".4"/></svg></div><h4>Family Communication Workflows</h4><p>Consistent, timely updates to families throughout the care journey.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg></div><h4>AI Notes & Compliance Docs</h4><p>Complete daily clinical notes and visit documentation automatically.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+      </div>
+    </div>
+    <div class="spec-content" id="tab-behavioral">
+      <div class="spec-problems">
+        <h3>Therapists spending 35% of time on admin <em>can't afford to.</em></h3>
+        <ul class="spec-problem-list">
+          <li>Intake paperwork delays the start of care by days or weeks</li>
+          <li>High no-show rates disrupt provider schedules and revenue</li>
+          <li>Insurance authorization and billing takes hours of admin time</li>
+          <li>Clinical notes consume 30-40% of therapist time outside sessions</li>
+        </ul>
+        <a href="#demo-hero" class="btn-nav" style="display:inline-block;padding:14px 28px;font-size:14px;">Get My Behavioral Health Demo →</a>
+      </div>
+      <div class="spec-automations">
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h4>AI Intake & Assessment</h4><p>Digital intake, consent, and assessments completed before session one.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg></div><h4>No-Show Reduction System</h4><p>Automated reminders and waitlist management fill every cancellation gap.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="16" rx="1"/><path d="M12 2v4M5 6V4M19 6V4"/><path d="M12 11v4M10 13h4"/></svg></div><h4>Insurance Auth Automation</h4><p>Pre auth requests submitted automatically zero staff time required.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg></div><h4>AI Medical Notes</h4><p>Complete daily clinical notes faster and more accurately.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+      </div>
+    </div>
+    <div class="spec-content" id="tab-chiro">
+      <div class="spec-problems">
+        <h3>Chiropractic clinics lose patients between visits <em>without a system.</em></h3>
+        <ul class="spec-problem-list">
+          <li>Patients drop off care plans before completing treatment</li>
+          <li>No consistent system to convert inquiries into first visits</li>
+          <li>Front desk scheduling calls eat the entire work day</li>
+          <li>Daily clinical note documentation takes providers from patients</li>
+        </ul>
+        <a href="#demo-hero" class="btn-nav" style="display:inline-block;padding:14px 28px;font-size:14px;">Get My Chiro Demo →</a>
+      </div>
+      <div class="spec-automations">
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h4>New Patient Lead Automation</h4><p>Every inquiry gets an instant response and a booked first appointment.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 12h3M14 12h3M12 7v3M12 14v3"/></svg></div><h4>Care Plan Retention Sequences</h4><p>Automated check-ins keeping patients on their full treatment plan.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5"/><line x1="9" y1="6" x2="15" y2="6" opacity=".4"/></svg></div><h4>AI Front Desk & Scheduling</h4><p>Book, confirm, reschedule, remind without staff lifting a finger.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+        <div class="auto-card"><div class="auto-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg></div><h4>AI Daily Documentation</h4><p>Complete clinical notes accurately and fast, every single shift.</p><div class="hipaa">✔ HIPAA Compliant</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats" id="results">
+  <div class="stats-inner container" style="padding:0;">
+    <div class="stat-item reveal"><div class="stat-num">40%</div><div class="stat-label">Reduction in patient<br>no-show rates</div></div>
+    <div class="stat-item reveal"><div class="stat-num">2K+</div><div class="stat-label">Admin hours reclaimed<br>per practice annually</div></div>
+    <div class="stat-item reveal"><div class="stat-num">98%</div><div class="stat-label">New patient inquiry<br>capture rate 24/7</div></div>
+    <div class="stat-item reveal"><div class="stat-num">3×</div><div class="stat-label">Faster response vs<br>industry average</div></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process" id="how2">
+  <div class="container">
+    <div class="process-header reveal">
+      <div class="section-label">How It Works</div>
+      <h2>We handle everything.<br><em>You see patients.</em></h2>
+      <p>From compliance to build to training we run the entire implementation. Your team stays focused on patients the whole time.</p>
+    </div>
+    <div class="process-steps reveal">
+      <div class="step"><div class="step-num">01</div><h3>FREE Strategy Call</h3><p>We audit your workflows, identify revenue leaks, and map out exactly where AI has the highest impact for your specialty.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>Compliance First</h3><p>BAA signed before anything is built. Full HIPAA review completed. Your practice is protected before day one.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Custom Build & Integration</h3><p>We build your AI systems and connect them to your existing EHR and scheduling tools. No rip-and-replace.</p></div>
+      <div class="step"><div class="step-num">04</div><h3>Launch & Optimize</h3><p>Go live with full staff training. We monitor, optimize, and report on results every single month.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS / CASE STUDIES -->
+<section class="results">
+  <div class="container">
+
+    <div class="results-header reveal">
+      <div class="section-label">Real Results. Real Practices.</div>
+      <h2>Practices just like yours are seeing <em>results in 30 days.</em></h2>
+      <p>No case studies from hypothetical practices. These are real numbers from real healthcare providers using Patheown today.</p>
+    </div>
+
+    <div class="rating-row reveal">
+      <div class="rating-badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <span class="stars">★★★★★</span>
+        <span style="color:var(--text-muted);font-size:14px;">4.9 · 140+ Google Reviews</span>
+      </div>
+      <div class="rating-stat"><div class="rating-stat-num">500+</div><div class="rating-stat-label">Practices Served</div></div>
+      <div class="rating-stat"><div class="rating-stat-num">$0</div><div class="rating-stat-label">Upfront Cost to Start</div></div>
+      <div class="rating-stat"><div class="rating-stat-num">30d</div><div class="rating-stat-label">Avg. Time to First Results</div></div>
+    </div>
+
+    <!-- FEATURED CASE STUDY -->
+    <div class="featured-case reveal">
+      <div class="featured-case-left">
+        <div class="case-specialty"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 2 6 4 6 7c0 2 .5 3.5 1 5l1 7c.2 1 1 1.5 1.5 1.5S11 20 11.5 19l.5-2 .5 2c.5 1 1.2 1.5 1.5 1.5s1.3-.5 1.5-1.5l1-7c.5-1.5 1-3 1-5 0-3-3-5-6-5z"/></svg> Dental Multi-Location Group</div>
+        <h3>From 23% no-show rate to <em>near zero</em> in 60 days.</h3>
+        <p>This 4-location dental group was hemorrhaging revenue through missed appointments and after hours inquiries going unanswered. Staff were spending 3+ hours daily on scheduling alone.</p>
+        <div class="case-quote">"No-show rate dropped 38% in the first 60 days. The AI handles everything after hours and our front desk finally has breathing room. Worth every penny."</div>
+        <div class="case-attr">  Dr. Rachel Chen, Multi-Location Dental Group · ★★★★★ Verified Google Review</div>
+      </div>
+      <div class="featured-case-right">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-before">Before: 23%</div>
+            <div class="metric-arrow">↓</div>
+            <div class="metric-after">3%</div>
+            <div class="metric-label">No-Show Rate</div>
+            <div class="metric-change">−87% reduction</div>
           </div>
-        </div>
-        <div class="pain-grid">
-          <div class="pain-card">
-            <div class="pain-icon">
-              <img
-                src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=112&h=112&fit=crop&q=80"
-                alt="Person calling on phone at night after hours"
-              />
-            </div>
-            <div class="pain-title">
-              Missed Calls &amp; After-Hours Inquiries
-            </div>
-            <div class="pain-desc">
-              Every unanswered call is a patient booked by your competitor. Your
-              phones go dark at 5pm. Your competitors' AI never does.
-            </div>
-            <div class="pain-cost">Avg. $6,200/mo in lost new patients</div>
+          <div class="metric-card">
+            <div class="metric-before">Before: 5pm</div>
+            <div class="metric-arrow">↑</div>
+            <div class="metric-after">24/7</div>
+            <div class="metric-label">Patient Inquiry Coverage</div>
+            <div class="metric-change">Always on</div>
           </div>
-          <div class="pain-card">
-            <div class="pain-icon">
-              <img
-                src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=112&h=112&fit=crop&q=80"
-                alt="Nurse stressed and overwhelmed by medical paperwork"
-              />
-            </div>
-            <div class="pain-title">Providers Buried in Paperwork</div>
-            <div class="pain-desc">
-              Physicians and therapists spend 2-3 hours a day on documentation.
-              That's 600+ hours a year stolen from patient care and revenue.
-            </div>
-            <div class="pain-cost">Up to 3 hrs/day per provider lost</div>
+          <div class="metric-card">
+            <div class="metric-before">Before: 3 hrs</div>
+            <div class="metric-arrow">↓</div>
+            <div class="metric-after">18 min</div>
+            <div class="metric-label">Daily Admin Per Provider</div>
+            <div class="metric-change">90% time saved</div>
           </div>
-          <div class="pain-card">
-            <div class="pain-icon">
-              <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=112&h=112&fit=crop&q=80"
-                alt="Empty dental chair no-show"
-              />
-            </div>
-            <div class="pain-title">No-Shows Draining Chair Time</div>
-            <div class="pain-desc">
-              The average practice loses 18-23% of appointments to no-shows with
-              no automated system to fill those gaps in real time.
-            </div>
-            <div class="pain-cost">Up to $4,000/mo per provider</div>
+          <div class="metric-card">
+            <div class="metric-before">Before:  </div>
+            <div class="metric-arrow">↑</div>
+            <div class="metric-after">$28K</div>
+            <div class="metric-label">Additional Monthly Revenue</div>
+            <div class="metric-change">First 90 days</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SPECIALTIES -->
-    <section class="spec-section">
-      <div class="spec-header">
-        <div class="section-label">
-          <span class="sl-line"></span
-          ><span class="sl-text">Healthcare Specialties</span>
-        </div>
-        <h2 class="section-headline">
-          Built for your <em>specific</em> specialty.<br />Not generic. Not
-          repurposed.
-        </h2>
-        <p class="section-sub">
-          Select your specialty and see exactly what Patheown automates for
-          practices like yours.
-        </p>
-      </div>
-      <div class="spec-tabs-wrap">
-        <div class="spec-tabs">
-          <button class="spec-tab active" data-panel="dental">
-            <span class="spec-tab-icon"
-              ><img
-                src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=88&h=88&fit=crop&q=80"
-                alt="Dentist examining patient teeth with dental tools" /></span
-            ><span>Dental</span>
-          </button>
-          <button class="spec-tab" data-panel="medspa">
-            <span class="spec-tab-icon"
-              ><img
-                src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=88&h=88&fit=crop&q=80"
-                alt="Aesthetician performing facial injection treatment" /></span
-            ><span>Med Spa</span>
-          </button>
-          <button class="spec-tab" data-panel="homehealth">
-            <span class="spec-tab-icon"
-              ><img
-                src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=88&h=88&fit=crop&q=80"
-                alt="Home health nurse caring for elderly patient at home" /></span
-            ><span>Home Health</span>
-          </button>
-          <button class="spec-tab" data-panel="behavioral">
-            <span class="spec-tab-icon"
-              ><img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=88&h=88&fit=crop&q=80"
-                alt="Therapist sitting with patient in therapy session" /></span
-            ><span>Behavioral Health</span>
-          </button>
-          <button class="spec-tab" data-panel="chiro">
-            <span class="spec-tab-icon"
-              ><img
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=88&h=88&fit=crop&q=80"
-                alt="Chiropractic spine back treatment" /></span
-            ><span>Chiropractic</span>
-          </button>
+    <!-- 3 CASE CARDS -->
+    <div class="cases-grid reveal">
+
+      <div class="case-card">
+        <div class="case-tag"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg> Med Spa</div>
+        <div class="case-result">$30K</div>
+        <div class="case-result-label">Additional monthly revenue in 90 days</div>
+        <div class="case-divider"></div>
+        <div class="case-quote-sm">"We were losing 25% of after hours inquiries. Now AI responds in 60 seconds, books the consultation, and sends intake. Revenue up $30K/month."</div>
+        <div class="case-person">
+          <div class="case-avatar">JS</div>
+          <div>
+            <div class="case-name">Jennifer Santos</div>
+            <div class="case-role">Med Spa & Aesthetic Clinic</div>
+            <div class="case-stars">★★★★★</div>
+          </div>
         </div>
       </div>
 
-      <div class="spec-panel active" id="panel-dental">
-        <div class="spec-panel-left">
-          <h3>
-            Dental practices lose <em>thousands every month</em> to no-shows and
-            missed calls.
-          </h3>
-          <p>
-            Your front desk is overwhelmed. Patients call after hours and get
-            voicemail. No-shows cost $4,000+ per month per chair. Recalls fall
-            through the cracks. Patheown fixes all of it automatically.
-          </p>
-          <ul class="spec-pain-list">
-            <li>
-              <span class="spec-bullet">▸</span> High no-show rates drain chair
-              time and daily revenue
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> New patient inquiries missed
-              after hours go to competitors
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Recall patients lost with no
-              automated follow-up system
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Insurance verification and
-              paperwork slow the whole practice
-            </li>
+      <div class="case-card">
+        <div class="case-tag"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-1.44-4.44 3 3 0 0 1 0-5.2 2.5 2.5 0 0 1 1.44-4.44A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 1.44-4.44 3 3 0 0 0 0-5.2 2.5 2.5 0 0 0-1.44-4.44A2.5 2.5 0 0 0 14.5 2z"/></svg> Behavioral Health</div>
+        <div class="case-result">8→3</div>
+        <div class="case-result-label">Weeks waitlist dropped in 60 days</div>
+        <div class="case-divider"></div>
+        <div class="case-quote-sm">"We vetted 6 AI platforms. Patheown was the only one that led with HIPAA compliance and had documentation to back it up. Waitlist dropped from 8 weeks to 3."</div>
+        <div class="case-person">
+          <div class="case-avatar">PC</div>
+          <div>
+            <div class="case-name">Patricia Cole, LMFT</div>
+            <div class="case-role">Behavioral Health Group</div>
+            <div class="case-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-tag"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><rect x="9" y="4.5" width="6" height="3" rx="1.5"/><rect x="9" y="10" width="6" height="3" rx="1.5"/><rect x="9" y="15.5" width="6" height="3" rx="1.5"/><path d="M9 6H6M15 6h3M9 11.5H6M15 11.5h3M9 17H6M15 17h3"/></svg> Chiropractic</div>
+        <div class="case-result">3×</div>
+        <div class="case-result-label">New patient bookings same ad spend</div>
+        <div class="case-divider"></div>
+        <div class="case-quote-sm">"Tripled new patient bookings in 60 days without spending more on ads. The recall automation brought back patients I hadn't seen in 2 years. Unreal ROI."</div>
+        <div class="case-person">
+          <div class="case-avatar">JB</div>
+          <div>
+            <div class="case-name">Dr. James Briggs, DC</div>
+            <div class="case-role">Chiropractic Clinic Owner</div>
+            <div class="case-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MID-PAGE CTA -->
+    <div class="mid-cta reveal">
+      <div class="mid-cta-text">
+        <h3>Ready to see results like these in your practice?</h3>
+        <p>Book a FREE 30 minute strategy call. No commitment. No credit card. Just results.</p>
+      </div>
+      <a href="#demo-hero" class="btn-mid-cta">Book My FREE Demo Now →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" id="tools">
+  <div class="container">
+    <div class="tools-header reveal">
+      <div class="section-label">What We Build</div>
+      <h2>Every tool designed for how healthcare <em>actually works.</em></h2>
+      <p>Purpose built for clinical workflows from day one not generic software with a healthcare label slapped on it.</p>
+    </div>
+    <div class="tools-grid reveal">
+      <div class="tool-card"><div class="tool-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><path d="M6 14h4M14 14h4" opacity=".5"/></svg></div><h3>Billing & Compliance Workflows</h3><p>Pre auth requests, billing follow-ups, insurance verification automated so your revenue cycle never stops moving.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:44px;" class="reveal">
+      <div class="section-label">Our Guarantee</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(26px,4vw,46px);font-weight:400;letter-spacing:-1.5px;margin-bottom:14px;">Zero risk. <em>Real results.</em></h2>
+      <p style="font-size:16px;color:var(--text-muted);max-width:460px;margin:0 auto;">We stand behind every build. Here is what you can count on from day one.</p>
+    </div>
+    <div class="guarantee-inner reveal">
+      <div class="g-card"><div class="g-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><h3>HIPAA Guaranteed</h3><p>BAA signed before any system is built. PHI-safe infrastructure. End to end encryption. Zero compliance risk on every tier.</p></div>
+      <div class="g-card"><div class="g-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Measurable ROI</h3><p>If you are not seeing measurable improvements in no-shows, inquiry capture, or admin time, we keep working at no additional cost until you do.</p></div>
+      <div class="g-card"><div class="g-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><h3>No Rip-and-Replace</h3><p>We integrate with your existing EHR and scheduling tools. Nothing you rely on gets disrupted. Your staff works with what they already know.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  <div class="urgency-inner">
+    <p class="urgency-text">Your competitors are already automating. <strong>Every day you wait is revenue lost.</strong></p>
+    <a href="#demo-hero" class="btn-urgency">Book My FREE Demo Now →</a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <div class="section-label">FAQ</div>
+      <h2>Questions we get <em>every time.</em></h2>
+    </div>
+    <div class="faq-grid reveal">
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is everything truly HIPAA compliant?<svg class="faq-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">100%. We sign your BAA before a single system is discussed or built. Every tool uses PHI-safe data handling, end to end encryption, and is built to full HIPAA standards. Zero compliance risk, guaranteed.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I have to replace my current software?<svg class="faq-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Never. Patheown layers AI on top of your existing EHR, scheduling, and billing systems. No rip-and-replace. Your team keeps using the tools they already know.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long does implementation take?<svg class="faq-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Most practices go live in under 3 weeks. We handle the entire build, EHR integration, and team training your staff does not need to lift a finger until launch day.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What is the Diamond Package?<svg class="faq-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">The Diamond Package is our full patient acquisition marketing system SEO, Google Ads, a custom conversion optimized landing page, and a data engineering pipeline. It can be added to any CRM build or purchased as a standalone marketing system.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is there a long term contract?<svg class="faq-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">No. Month-to-month after your build is complete. Our clients stay because the results speak for themselves not because they are locked in.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What if I don't see results?<svg class="faq-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We stand behind our work. If you are not seeing measurable improvements in no-shows, inquiry capture, or admin time within 60 days, we continue working at no additional cost until you do.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAMOND PACKAGE FINAL CTA -->
+<section class="diamond-section" id="demo">
+  <div class="container">
+    <div class="diamond-inner">
+      <div class="diamond-left reveal">
+        <div class="diamond-badge"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 3 18 3 22 9 12 22 2 9 6 3"/><polyline points="2 9 12 9 22 9"/><line x1="6" y1="3" x2="12" y2="22"/><line x1="18" y1="3" x2="12" y2="22"/></svg></span> Diamond Package</div>
+        <h2>The marketing engine that floods your practice with <em>hyper targeted patients.</em></h2>
+        <p class="diamond-sub">Pure marketing. Four services working together to bring the right patients directly to your practice at scale. Can be purchased standalone or included in your AI CRM build-out.</p>
+        <div class="diamond-features">
+          <div class="diamond-feature">
+            <div class="diamond-feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div>
+              <div class="diamond-feature-title">SEO Local & Specialty Search</div>
+              <div class="diamond-feature-desc">Rank first when patients search for your services. Organic patients on autopilot.</div>
+            </div>
+          </div>
+          <div class="diamond-feature">
+            <div class="diamond-feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+            <div>
+              <div class="diamond-feature-title">Google Ads Management</div>
+              <div class="diamond-feature-desc">Specialty targeted campaigns that flood your pipeline with qualified leads ready to book.</div>
+            </div>
+          </div>
+          <div class="diamond-feature">
+            <div class="diamond-feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+            <div>
+              <div class="diamond-feature-title">Custom Landing Page</div>
+              <div class="diamond-feature-desc">Designed for maximum conversions. HIPAA compliant, built for your specialty.</div>
+            </div>
+          </div>
+          <div class="diamond-feature">
+            <div class="diamond-feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><path d="M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12"/></svg></div>
+            <div>
+              <div class="diamond-feature-title">Data Engineering</div>
+              <div class="diamond-feature-desc">Unified EHR + CRM + ad data pipeline with real time ROI dashboards.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="diamond-card reveal">
+        <div class="diamond-card-header">
+          <span class="diamond-gem"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 3 18 3 22 9 12 22 2 9 6 3"/><polyline points="2 9 12 9 22 9"/><line x1="6" y1="3" x2="12" y2="22"/><line x1="18" y1="3" x2="12" y2="22"/></svg></span>
+          <div class="diamond-card-title">Book Your <em>FREE</em> Strategy Demo</div>
+          <div class="diamond-card-sub">30 minutes. We map your growth opportunities and show you what the full system can do.</div>
+        </div>
+        <div class="diamond-card-body">
+          <ul class="diamond-includes">
+            <li><span class="diamond-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>Full practice growth audit no charge</li>
+            <li><span class="diamond-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>Patient acquisition strategy for your specialty</li>
+            <li><span class="diamond-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>SEO, Ads & landing page roadmap custom to you</li>
+            <li><span class="diamond-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>HIPAA compliance review included</li>
+            <li><span class="diamond-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>No commitment. No pressure. No credit card.</li>
           </ul>
-          <a class="spec-cta" href="#demo"
-            >Get My Dental Demo
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M3 8h10M9 4l4 4-4 4" /></svg
-          ></a>
-        </div>
-        <div class="spec-sols">
-          <div class="spec-sols-heading">
-            What Patheown Automates for Dental
+          <div class="form-group" style="margin-bottom:13px;"><label>Full Name</label><input type="text" placeholder="Dr. Jane Smith"></div>
+          <div class="form-group" style="margin-bottom:13px;"><label>Practice Email</label><input type="email" placeholder="jane@mypractice.com"></div>
+          <div class="form-group" style="margin-bottom:13px;"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000"></div>
+          <div class="form-group" style="margin-bottom:13px;">
+            <label>Specialty</label>
+            <select><option value="" disabled selected>Select your specialty</option><option>Dental</option><option>Med Spa</option><option>Home Health</option><option>Behavioral Health</option><option>Chiropractic</option><option>Other</option></select>
           </div>
-          <div class="sol-item">
-            <div class="sol-icon">📅</div>
-            <div>
-              <div class="sol-title">AI Appointment Automation</div>
-              <div class="sol-desc">
-                Book, confirm, remind, and reschedule zero front desk time
-                required.
-              </div>
-            </div>
+          <div class="form-group" style="margin-bottom:18px;">
+            <label>What are you interested in?</label>
+            <select><option value="" disabled selected>Select an option</option><option>AI Automation CRM</option><option>Diamond Package</option><option>Both AI Automation CRM &amp; Diamond Package</option></select>
           </div>
-          <div class="sol-item">
-            <div class="sol-icon">🤖</div>
-            <div>
-              <div class="sol-title">24/7 New Patient Chatbot</div>
-              <div class="sol-desc">
-                Captures and books every after-hours inquiry before competitors
-                respond.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">🔁</div>
-            <div>
-              <div class="sol-title">Patient Recall Campaigns</div>
-              <div class="sol-desc">
-                Automated re-engagement for overdue patients recovering lost
-                revenue.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">📋</div>
-            <div>
-              <div class="sol-title">AI Medical Notes &amp; Intake</div>
-              <div class="sol-desc">
-                Assist your team complete daily clinical notes paperwork on
-                autopilot.
-              </div>
-              <div class="hipaa-tag">✔ Fully HIPAA Compliant</div>
-            </div>
+          <a href="#" class="btn-diamond" onclick="handleDiamondSubmit(event)">Book My FREE Strategy Demo →</a>
+          <div class="diamond-guarantee">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            HIPAA compliant from the very first conversation
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="spec-panel" id="panel-medspa">
-        <div class="spec-panel-left">
-          <h3>
-            Med spas lose <em>high-value bookings</em> every day to unanswered
-            DMs.
-          </h3>
-          <p>
-            Your clients reach out at 9pm. By morning they've booked elsewhere.
-            Upselling is inconsistent. Cancellations waste expensive provider
-            time. Patheown turns your practice into a 24/7 booking machine.
-          </p>
-          <ul class="spec-pain-list">
-            <li>
-              <span class="spec-bullet">▸</span> After-hours DMs and inquiries
-              lost to competitors overnight
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> No automated system to upsell
-              packages and memberships
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Consultation no-shows waste
-              expensive injector and laser time
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Reviews and before/after
-              follow-ups are entirely manual
-            </li>
-          </ul>
-          <a class="spec-cta" href="#demo"
-            >Get My Med Spa Demo
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M3 8h10M9 4l4 4-4 4" /></svg
-          ></a>
-        </div>
-        <div class="spec-sols">
-          <div class="spec-sols-heading">
-            What Patheown Automates for Med Spas
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">💬</div>
-            <div>
-              <div class="sol-title">AI Booking &amp; DM Automation</div>
-              <div class="sol-desc">
-                Responds to every inquiry in seconds day, night, weekend.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">💎</div>
-            <div>
-              <div class="sol-title">Membership Upsell Sequences</div>
-              <div class="sol-desc">
-                Automated campaigns to convert one-time clients into recurring
-                members.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">🔄</div>
-            <div>
-              <div class="sol-title">Post-Treatment Retention AI</div>
-              <div class="sol-desc">
-                Follow-up sequences that bring clients back at exactly the right
-                time.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">⭐</div>
-            <div>
-              <div class="sol-title">Review Generation Automation</div>
-              <div class="sol-desc">
-                Automatically requests Google reviews after every successful
-                treatment.
-              </div>
-              <div class="hipaa-tag">✔ Fully HIPAA Compliant</div>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- FOOTER -->
+<footer>
+  <a href="patheown-landing-white-purple.html" class="nav-logo" style="font-size:20px;">
+    <span class="nav-logo-plain">Path</span><span class="nav-logo-italic">eown</span>
+  </a>
+  <ul class="footer-links">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./services.html">Industries</a></li>
+    <li><a href="./diamond-plan.html">Diamond Package</a></li>
+    <li><a href="./pricing.html">Pricing</a></li>
+    <li><a href="./index.html#hero-form">Book Demo</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Patheown · HIPAA Compliant · All rights reserved.</span>
+</footer>
 
-      <div class="spec-panel" id="panel-homehealth">
-        <div class="spec-panel-left">
-          <h3>
-            Home health agencies lose <em>referrals</em> to agencies that
-            respond faster.
-          </h3>
-          <p>
-            Hospital coordinators call three agencies. The first to respond gets
-            the case. Your manual intake takes days. Your competitor's AI takes
-            hours. Patheown makes you the fastest agency every time.
-          </p>
-          <ul class="spec-pain-list">
-            <li>
-              <span class="spec-bullet">▸</span> Slow referral intake loses
-              cases to faster-responding agencies
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Caregiver scheduling is manual,
-              error-prone, and time-consuming
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Family communication and care
-              updates are inconsistent
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Compliance documentation
-              creates massive daily admin burden
-            </li>
-          </ul>
-          <a class="spec-cta" href="#demo"
-            >Get My Home Health Demo
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M3 8h10M9 4l4 4-4 4" /></svg
-          ></a>
-        </div>
-        <div class="spec-sols">
-          <div class="spec-sols-heading">
-            What Patheown Automates for Home Health
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">⚡</div>
-            <div>
-              <div class="sol-title">Referral Intake Automation</div>
-              <div class="sol-desc">
-                Respond to referrals in hours, not days win more cases
-                automatically.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">📆</div>
-            <div>
-              <div class="sol-title">Caregiver Scheduling AI</div>
-              <div class="sol-desc">
-                Automated shift scheduling, conflicts resolved before they
-                happen.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">👨‍👩‍👦</div>
-            <div>
-              <div class="sol-title">Family Communication Workflows</div>
-              <div class="sol-desc">
-                Consistent, timely updates to families throughout the care
-                journey.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">📋</div>
-            <div>
-              <div class="sol-title">
-                AI Medical Notes &amp; Compliance Docs
-              </div>
-              <div class="sol-desc">
-                Assist your team complete daily clinical notes and visit
-                documentation.
-              </div>
-              <div class="hipaa-tag">✔ Fully HIPAA Compliant</div>
-            </div>
-          </div>
-        </div>
-      </div>
+<script>
+  // Scroll announce bar away
+  const announceBar = document.querySelector('.announce-bar');
+  const mainNav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    const h = announceBar.offsetHeight;
+    mainNav.style.top = window.scrollY > h ? '0' : (h - window.scrollY) + 'px';
+  });
 
-      <div class="spec-panel" id="panel-behavioral">
-        <div class="spec-panel-left">
-          <h3>
-            Therapists spending 35% of time on admin <em>can't afford to.</em>
-          </h3>
-          <p>
-            Your therapists went to school to help people heal not fill out
-            intake forms and chase insurance authorizations. Patheown gives them
-            back their time and their purpose.
-          </p>
-          <ul class="spec-pain-list">
-            <li>
-              <span class="spec-bullet">▸</span> Intake paperwork delays the
-              start of care by days or weeks
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> High no-show rates disrupt
-              provider schedules and revenue
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Insurance authorization and
-              billing takes hours of admin time
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Clinical notes consume 30-40%
-              of therapist time outside sessions
-            </li>
-          </ul>
-          <a class="spec-cta" href="#demo"
-            >Get My Behavioral Health Demo
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M3 8h10M9 4l4 4-4 4" /></svg
-          ></a>
-        </div>
-        <div class="spec-sols">
-          <div class="spec-sols-heading">
-            What Patheown Automates for Behavioral Health
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">📝</div>
-            <div>
-              <div class="sol-title">AI Intake &amp; Assessment Automation</div>
-              <div class="sol-desc">
-                Digital intake, consent, and assessments completed before
-                session one.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">✅</div>
-            <div>
-              <div class="sol-title">No-Show Reduction System</div>
-              <div class="sol-desc">
-                Automated reminders and waitlist management fill every
-                cancellation gap.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">🏥</div>
-            <div>
-              <div class="sol-title">Insurance Auth Automation</div>
-              <div class="sol-desc">
-                Pre-auth requests submitted automatically zero staff time
-                required.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">📋</div>
-            <div>
-              <div class="sol-title">AI Medical Notes Daily Clinical Docs</div>
-              <div class="sol-desc">
-                Assist your team complete daily clinical notes faster and more
-                accurately.
-              </div>
-              <div class="hipaa-tag">✔ Fully HIPAA Compliant</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  // Spec tabs
+  function switchTab(id, btn) {
+    document.querySelectorAll('.spec-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.spec-tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
 
-      <div class="spec-panel" id="panel-chiro">
-        <div class="spec-panel-left">
-          <h3>
-            Chiropractic clinics lose patients between visits
-            <em>without a system.</em>
-          </h3>
-          <p>
-            Patients stop showing up after visit 3 or 4. No one follows up. New
-            patient pipelines dry up. Providers write notes by hand for hours.
-            Patheown changes all of it.
-          </p>
-          <ul class="spec-pain-list">
-            <li>
-              <span class="spec-bullet">▸</span> Patients drop off care plans
-              before completing treatment
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> No consistent system to convert
-              inquiries into first visits
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Front desk scheduling calls eat
-              the entire work day
-            </li>
-            <li>
-              <span class="spec-bullet">▸</span> Daily clinical note
-              documentation takes providers from patients
-            </li>
-          </ul>
-          <a class="spec-cta" href="#demo"
-            >Get My Chiro Demo
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M3 8h10M9 4l4 4-4 4" /></svg
-          ></a>
-        </div>
-        <div class="spec-sols">
-          <div class="spec-sols-heading">
-            What Patheown Automates for Chiropractic
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">🎯</div>
-            <div>
-              <div class="sol-title">New Patient Lead Automation</div>
-              <div class="sol-desc">
-                Every inquiry gets an instant response and booked first
-                appointment.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">🔗</div>
-            <div>
-              <div class="sol-title">Care Plan Retention Sequences</div>
-              <div class="sol-desc">
-                Automated check-ins keeping patients on their full treatment
-                plan.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">📱</div>
-            <div>
-              <div class="sol-title">AI Front Desk &amp; Scheduling</div>
-              <div class="sol-desc">
-                Book, confirm, reschedule, remind without staff lifting a
-                finger.
-              </div>
-            </div>
-          </div>
-          <div class="sol-item">
-            <div class="sol-icon">📋</div>
-            <div>
-              <div class="sol-title">AI Medical Notes Daily Documentation</div>
-              <div class="sol-desc">
-                Assist your team complete daily clinical notes accurately and
-                fast.
-              </div>
-              <div class="hipaa-tag">✔ Fully HIPAA Compliant</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GOOGLE REVIEWS -->
-    <section class="reviews-section">
-      <div class="reviews-header">
-        <div class="section-label">
-          <span class="sl-line"></span
-          ><span class="sl-text">Google Reviews</span>
-        </div>
-        <h2 class="section-headline">
-          Trusted by healthcare practices<br /><em>just like yours.</em>
-        </h2>
-        <div class="g-rating-row">
-          <div class="g-badge">
-            <span class="g-icon">G</span>
-            <div>
-              <div style="display: flex; align-items: center; gap: 8px">
-                <span class="g-score">4.9</span
-                ><span class="g-stars">★★★★★</span>
-              </div>
-              <div class="g-count">Based on 140+ Google Reviews</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reviews-track-wrap">
-        <div class="reviews-track">
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #6c63ff, #9d97ff)"
-              >
-                RC
-              </div>
-              <div>
-                <div class="rev-name">Dr. Rachel Chen</div>
-                <div class="rev-spec">Multi-Location Dental Group</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "No-show rate dropped 38% in the first 60 days. The AI handles
-              everything after hours and our front desk finally has breathing
-              room. Worth every penny."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #f59e0b, #fb923c)"
-              >
-                MK
-              </div>
-              <div>
-                <div class="rev-name">Michelle Kwan, LCSW</div>
-                <div class="rev-spec">Behavioral Health Practice</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "HIPAA compliance was my biggest concern. Patheown had the BAA
-              ready before we discussed systems. My therapists now spend zero
-              time on admin just clinical work."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #22c55e, #16a34a)"
-              >
-                JS
-              </div>
-              <div>
-                <div class="rev-name">Jennifer Santos</div>
-                <div class="rev-spec">Med Spa &amp; Aesthetic Clinic</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "We were losing 25% of after-hours inquiries. Now AI responds in
-              60 seconds, books the consultation, and sends intake. Revenue up
-              $30K/month."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #6c63ff, #4f46e5)"
-              >
-                AK
-              </div>
-              <div>
-                <div class="rev-name">Dr. Aisha Khan, MD</div>
-                <div class="rev-spec">Primary Care Physician</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "The AI Medical Notes saved me 2 hours every clinic day. That's 10
-              hours a week I used to spend charting at 10pm. I finally have my
-              evenings back."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #ec4899, #f43f5e)"
-              >
-                JB
-              </div>
-              <div>
-                <div class="rev-name">Dr. James Briggs, DC</div>
-                <div class="rev-spec">Chiropractic Clinic Owner</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "Tripled new patient bookings in 60 days without spending more on
-              ads. The recall automation brought back patients I hadn't seen in
-              2 years. Unreal ROI."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #0ea5e9, #6c63ff)"
-              >
-                TR
-              </div>
-              <div>
-                <div class="rev-name">Tanya Rodriguez, DPT</div>
-                <div class="rev-spec">Physical Therapy Clinic</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "I was burning out managing insurance auth, scheduling, and
-              follow-ups alone. Patheown automated all three in 3 weeks.
-              Completely changed my clinic."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #a78bfa, #6c63ff)"
-              >
-                PC
-              </div>
-              <div>
-                <div class="rev-name">Patricia Cole, LMFT</div>
-                <div class="rev-spec">Behavioral Health Group</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "We vetted 6 AI platforms. Patheown was the only one that led with
-              HIPAA compliance and had documentation to back it up. Waitlist
-              dropped from 8 weeks to 3."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <!-- Duplicate for loop -->
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #6c63ff, #9d97ff)"
-              >
-                RC
-              </div>
-              <div>
-                <div class="rev-name">Dr. Rachel Chen</div>
-                <div class="rev-spec">Multi-Location Dental Group</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "No-show rate dropped 38% in the first 60 days. The AI handles
-              everything after hours and our front desk finally has breathing
-              room. Worth every penny."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #f59e0b, #fb923c)"
-              >
-                MK
-              </div>
-              <div>
-                <div class="rev-name">Michelle Kwan, LCSW</div>
-                <div class="rev-spec">Behavioral Health Practice</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "HIPAA compliance was my biggest concern. Patheown had the BAA
-              ready before we discussed systems. My therapists now spend zero
-              time on admin just clinical work."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #22c55e, #16a34a)"
-              >
-                JS
-              </div>
-              <div>
-                <div class="rev-name">Jennifer Santos</div>
-                <div class="rev-spec">Med Spa &amp; Aesthetic Clinic</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "We were losing 25% of after-hours inquiries. Now AI responds in
-              60 seconds, books the consultation, and sends intake. Revenue up
-              $30K/month."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #6c63ff, #4f46e5)"
-              >
-                AK
-              </div>
-              <div>
-                <div class="rev-name">Dr. Aisha Khan, MD</div>
-                <div class="rev-spec">Primary Care Physician</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "The AI Medical Notes saved me 2 hours every clinic day. That's 10
-              hours a week I used to spend charting at 10pm. I finally have my
-              evenings back."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-          <div class="rev-card">
-            <div class="rev-header">
-              <div
-                class="rev-avatar"
-                style="background: linear-gradient(135deg, #ec4899, #f43f5e)"
-              >
-                JB
-              </div>
-              <div>
-                <div class="rev-name">Dr. James Briggs, DC</div>
-                <div class="rev-spec">Chiropractic Clinic Owner</div>
-              </div>
-            </div>
-            <div class="rev-stars">★★★★★</div>
-            <div class="rev-text">
-              "Tripled new patient bookings in 60 days without spending more on
-              ads. The recall automation brought back patients I hadn't seen in
-              2 years. Unreal ROI."
-            </div>
-            <div class="rev-verified">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" /></svg
-              >Verified Google Review
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESULTS -->
-    <section class="results-section">
-      <div class="results-inner">
-        <div class="results-top">
-          <h2 class="results-headline">
-            The numbers don't lie.<br /><em
-              >Real results from real practices.</em
-            >
-          </h2>
-          <p class="results-sub">
-            Average outcomes across Patheown-powered practices after 90 days of
-            implementation.
-          </p>
-        </div>
-        <div class="results-grid">
-          <div class="res-stat">
-            <div class="res-num"><em>40%</em></div>
-            <div class="res-label">Reduction in patient no-show rates</div>
-          </div>
-          <div class="res-stat">
-            <div class="res-num"><em>2,000+</em></div>
-            <div class="res-label">
-              Admin hours reclaimed per practice annually
-            </div>
-          </div>
-          <div class="res-stat">
-            <div class="res-num"><em>98%</em></div>
-            <div class="res-label">New patient inquiry capture rate 24/7</div>
-          </div>
-          <div class="res-stat">
-            <div class="res-num"><em>3×</em></div>
-            <div class="res-label">
-              Faster patient response time vs industry average
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="how-section" id="how">
-      <div class="sw">
-        <div class="section-label">
-          <span class="sl-line"></span><span class="sl-text">The Process</span>
-        </div>
-        <h2 class="section-headline">
-          Live in your practice<br />in <em>under 3 weeks.</em>
-        </h2>
-        <p class="section-sub">
-          We handle everything compliance, build, integration, and training.
-          Your team stays focused on patients the entire time.
-        </p>
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-num-wrap"><div class="step-num">01</div></div>
-            <div class="step-name">Free Strategy Call</div>
-            <div class="step-desc">
-              We audit your workflows, identify revenue leaks, and show exactly
-              where automation has the biggest impact.
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="step-num-wrap"><div class="step-num">02</div></div>
-            <div class="step-name">Compliance Review &amp; BAA</div>
-            <div class="step-desc">
-              We sign your BAA and complete a full HIPAA review before a single
-              system is built or touched.
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="step-num-wrap"><div class="step-num">03</div></div>
-            <div class="step-name">Custom Build &amp; EHR Integration</div>
-            <div class="step-desc">
-              We build your AI systems and integrate with your existing EHR and
-              scheduling tools no rip-and-replace.
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="step-num-wrap"><div class="step-num">04</div></div>
-            <div class="step-name">Launch &amp; Ongoing Optimization</div>
-            <div class="step-desc">
-              Go live with full staff training. We monitor and optimize every
-              month to maximize your ROI.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="features-section">
-      <div class="sw" style="max-width: 1200px; margin: 0 auto">
-        <div class="section-label">
-          <span class="sl-line"></span
-          ><span class="sl-text">What We Build</span>
-        </div>
-        <h2 class="section-headline">
-          Every tool designed for how<br />healthcare <em>actually works.</em>
-        </h2>
-        <p class="section-sub" style="margin-bottom: 40px">
-          Purpose-built for clinical workflows from day one. Not generic
-          software with a healthcare label slapped on it.
-        </p>
-        <div class="features-grid">
-          <div class="feat-card hipaa">
-            <div class="feat-icon">
-              <img
-                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=108&h=108&fit=crop&q=80"
-                alt="Digital lock cybersecurity HIPAA protection"
-              />
-            </div>
-            <div class="feat-name">100% HIPAA-Compliant AI</div>
-            <div class="feat-desc">
-              Every tool built within HIPAA guidelines. BAA signed before day
-              one. PHI-safe data handling. Zero compliance risk guaranteed.
-            </div>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">
-              <img
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=108&h=108&fit=crop&q=80"
-                alt="Doctor writing clinical notes and medical documentation"
-              />
-            </div>
-            <div class="feat-name">AI Medical Notes</div>
-            <div class="feat-desc">
-              Assist your team complete daily clinical notes accurately and fast
-              so providers spend less time charting and more time with patients.
-            </div>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">
-              <img
-                src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=108&h=108&fit=crop&q=80"
-                alt="Schedule and calendar on computer screen"
-              />
-            </div>
-            <div class="feat-name">Smart Scheduling Automation</div>
-            <div class="feat-desc">
-              Book, confirm, remind, reschedule, and fill cancellations
-              automatically. Cut no-shows by 40% without a single staff
-              touchpoint.
-            </div>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">
-              <img
-                src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=108&h=108&fit=crop&q=80"
-                alt="Person on phone call patient communication 24 hours"
-              />
-            </div>
-            <div class="feat-name">24/7 AI Patient Communication</div>
-            <div class="feat-desc">
-              Answer inquiries, collect insurance info, send care instructions,
-              and capture new patients even at 2am on a Sunday.
-            </div>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=108&h=108&fit=crop&q=80"
-                alt="CRM dashboard with patient data charts and analytics on screen"
-              />
-            </div>
-            <div class="feat-name">Custom Healthcare CRM</div>
-            <div class="feat-desc">
-              A HIPAA-safe patient pipeline for your practice track every lead,
-              recall, and follow-up without manual effort.
-            </div>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">
-              <img
-                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=108&h=108&fit=crop&q=80"
-                alt="Billing finance computer showing financial data and invoices"
-              />
-            </div>
-            <div class="feat-name">Billing &amp; Compliance Workflows</div>
-            <div class="feat-desc">
-              Pre-auth requests, billing follow-ups, insurance verification
-              automated so your revenue cycle never stops moving.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="cta-section">
-      <div class="cta-inner">
-        <div
-          class="section-label"
-          style="justify-content: center; margin-bottom: 18px"
-        >
-          <span class="sl-line"></span
-          ><span class="sl-text">Ready to Get Started?</span
-          ><span class="sl-line"></span>
-        </div>
-        <h2>
-          Stop losing revenue to admin.<br />Start with a <em>free demo.</em>
-        </h2>
-        <p>
-          Book a 30-minute strategy call. We'll audit your practice, identify
-          your biggest revenue leaks, and show you exactly what AI can do for
-          your specialty fully HIPAA compliant from the very first conversation.
-        </p>
-        <div class="cta-btns">
-          <a class="btn-hero" href="#demo"
-            >Book My Free Demo Now
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M3 8h10M9 4l4 4-4 4" /></svg
-          ></a>
-          <a class="btn-sec" href="/pricing-tiers">View Pricing →</a>
-        </div>
-        <div class="cta-trust">
-          <div class="ct-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg
-            >HIPAA Compliant
-          </div>
-          <div class="ct-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="20 6 9 17 4 12" /></svg
-            >BAA Day One
-          </div>
-          <div class="ct-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="20 6 9 17 4 12" /></svg
-            >No Commitment
-          </div>
-          <div class="ct-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="20 6 9 17 4 12" /></svg
-            >No Credit Card
-          </div>
-          <div class="ct-item">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="20 6 9 17 4 12" /></svg
-            >Live in Under 3 Weeks
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="f-logo">
-        <span class="logo-plain">Path</span><span class="logo-em">eown</span>
-      </div>
-      <div class="f-links">
-        <a href="/industries">Specialties</a>
-        <a href="/pricing-tiers">Pricing</a>
-        <a href="/results">Results</a>
-      </div>
-      <p>© 2025 Patheown · HIPAA Compliant · All rights reserved.</p>
-    </footer>
-    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const videoWrap = document.querySelector(".video-wrap");
-        const video = videoWrap.querySelector("video");
-        const playBtn = videoWrap.querySelector(".play-btn");
-        const label = videoWrap.querySelector(".video-label");
-        // Start with controls hidden
-        video.controls = false;
-        // PLAY BUTTON CLICK
-        playBtn.addEventListener("click", () => {
-          video.controls = true;
-          video.play();
-          playBtn.classList.add("hidden");
-          label.style.opacity = "0";
-          label.style.visibility = "hidden";
-        });
-        // WHEN VIDEO ENDS
-        video.addEventListener("ended", () => {
-          video.controls = false;
-          playBtn.classList.remove("hidden");
-          label.style.opacity = "1";
-          label.style.visibility = "visible";
-        });
-      });
-    </script>
-    <script>
-      document.querySelectorAll(".spec-tab").forEach((tab, i, tabs) => {
-        tab.addEventListener("click", function () {
-          tabs.forEach((t) => t.classList.remove("active"));
-          document
-            .querySelectorAll(".spec-panel")
-            .forEach((p) => p.classList.remove("active"));
-          this.classList.add("active");
-          const panel = document.getElementById("panel-" + this.dataset.panel);
-          if (panel) panel.classList.add("active");
-        });
-      });
-    </script>
-    <script>
-      function closeMobileMenu() {
-        document.getElementById("mobile-menu").classList.remove("open");
-        document.getElementById("hamburger").classList.remove("open");
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 90);
+        observer.unobserve(e.target);
       }
-      document
-        .getElementById("hamburger")
-        .addEventListener("click", function () {
-          this.classList.toggle("open");
-          document.getElementById("mobile-menu").classList.toggle("open");
-        });
-      document.addEventListener("click", function (e) {
-        if (!e.target.closest("nav") && !e.target.closest(".mobile-menu")) {
-          closeMobileMenu();
-        }
-      });
-    </script>
-  </body>
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ
+  function toggleFaq(item) {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Forms
+  function handleHeroSubmit() {
+    const btn = document.querySelector('#demo-hero .btn-submit');
+    if (!btn) return;
+    btn.textContent = '✔ Demo Booked We\'ll be in touch shortly!';
+    btn.style.background = '#059669';
+    btn.disabled = true;
+  }
+  function handleDiamondSubmit(e) {
+    e.preventDefault();
+    const btn = document.querySelector('.btn-diamond');
+    btn.textContent = '✔ Demo Booked. We will be in touch shortly!';
+    btn.style.background = '#059669';
+    btn.style.pointerEvents = 'none';
+  }
+</script>
+</body>
 </html>
